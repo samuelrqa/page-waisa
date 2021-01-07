@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <header>
+        <div class="fixed-top">
+            <div class="jumbotron position-absolute top-0 end-0">
+                <nav class="navbar">
+                    <div class="mb-auto mt-2 position-relative icon d-none" id="user-icon-stack" style="color: darkblue" onclick="toggleCollapse()">
+                        <span class="fa-stack" data-bs-toggle="tooltip" data-bs-placement="bottom" onmouseover="setTitle(this)">
+                            <i class="far fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-user  fa-stack-1x"></i>
+                        </span>
+                    </div>
+                    <div class="border mb-auto mt-1 popover-header px-1 position-relative rounded-start icon" onclick="toggleCollapse()">
+                        <i class="fas fa-angle-right fa-lg" id="collapse-icon"></i>
+                    </div>
+                    <figure class="bg-white rounded-start" id="logo-collapsed">
+                        <img src="https://drive.google.com/uc?export=view&id=1UBjwwfVYliVPYfa5Q1YaSpyyID8ZHTUc" class="rounded-top shadow" style="max-width: 250px;" alt="aceros-header">
+                        <figcaption class="fw-bold pe-sm-2 rounded-bottom shadow text-center text-sm-end" id="user-name"></figcaption>
+                    </figure>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="home-menu">
+        <div class="row justify-content-evenly m-0" id="content-menu">
+
+            <!-- Columna Menú -->
+            <div class="col-md-5 d-grid p-4 p-sm-5 bg-light columns overflow-scroll" id="side-bar-menu">
+
+                <div class="btn-toolbar justify-content-evenly mt-5 my-3" role="toolbar" id="search-options" aria-label="search-options">
+                    <div class="btn-group me-2 my-2" role="group" aria-label="customers">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill">Clientes</button>
+                    </div>
+                    <div class="btn-group me-2 my-2" role="group" aria-label="employees">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill">Empleados</button>
+                    </div>
+                    <div class="btn-group me-2 my-2" role="group" aria-label="products">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill">Productos</button>
+                    </div>
+                    <div class="btn-group me-2 my-2" role="group" aria-label="references">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill">Referencias</button>
+                    </div>
+                </div>
+
+                <!-- <div class="container py-4">
+                    <div class="row row-cols-auto row-cols-lg-2 row-cols-md-1 row-cols-sm-2 justify-content-evenly">
+
+                        <div class="col">
+                            <div class="p-3 bg-light">
+                                <button type="button" class="btn btn-outline-info" style="width: 106px;">Clientes</button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3 bg-light">
+                                <button type="button" class="btn btn-outline-info" style="width: 106px;">Empleados</button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3 bg-light">
+                                <button type="button" class="btn btn-outline-info" style="width: 106px;">Productos</button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3 bg-light">
+                                <button type="button" class="btn btn-outline-info" style="width: 106px;">Referencias</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> -->
+
+                <div class="accordion d-none" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span>1 Informes</span>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="accordion-body">
+                                <span>11 Ventas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span>2 Consultas varias</span>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <span>21 Contabilidad</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span>3 Consultas varias</span>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <span>31 Contabilidad</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span>4 Consultas varias</span>
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <span>41 Contabilidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="d-none">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dolore nostrum similique voluptas laborum quasi molestiae modi quaerat, officiis obcaecati dicta nesciunt est veritatis cum asperiores explicabo esse eaque eos! Sint esse cum eveniet. Blanditiis
+                    facilis molestiae delectus mollitia dolore rem illo, quam, cumque, voluptas beatae nulla quasi ducimus labore culpa earum nemo repellat libero commodi officia quaerat adipisci tempore. Officia tempore esse cum quibusdam optio? Nostrum
+                    nam soluta ad, quod facilis saepe animi aspernatur quos provident voluptatum dolor id a qui molestiae error repudiandae commodi sunt accusantium. Quam, consequatur! Similique rerum ratione nisi sint inventore. Mollitia, optio possimus
+                    eius nihil labore harum reiciendis. Cupiditate laudantium velit necessitatibus asperiores libero? Corporis sequi aperiam, tempora dolorum vitae animi eaque voluptatem nobis. Rerum, alias? Saepe quia quod tenetur nihil? Voluptatem quo
+                    aliquid, nobis cumque quod qui, fuga, commodi nisi ea deserunt eveniet ipsa fugiat iste aperiam dicta sapiente labore accusantium vel voluptate. Esse expedita aliquam ad quo ipsum atque non asperiores commodi quidem deleniti iusto
+                    nobis laboriosam, doloribus laborum. Fuga adipisci, delectus cupiditate eveniet qui, aspernatur ipsa nesciunt soluta amet minus asperiores? Officia, sapiente magni. Id libero culpa vel nobis, quibusdam itaque voluptatibus perferendis
+                    dicta animi deserunt labore, molestias, ut maiores perspiciatis accusantium! Reiciendis odio deserunt eos, distinctio suscipit delectus aperiam necessitatibus. Perspiciatis quod sed eos minus numquam dignissimos repellat ut harum voluptates,
+                    amet ipsam odit mollitia libero blanditiis velit cupiditate sequi laboriosam, quia voluptatibus? Eveniet, nesciunt voluptatibus quo dolorem provident doloribus? Quod eaque consequuntur nesciunt! Nisi, aperiam. Inventore hic iusto et,
+                    veritatis, magni illum sequi reiciendis nobis modi ipsa odio sit sapiente ullam maiores explicabo alias voluptatem quis praesentium atque quia? Temporibus illo nemo sunt sit explicabo modi est ad exercitationem, sequi maiores. Excepturi
+                    consequatur aperiam ullam facere rem, delectus, vitae cum voluptas alias, ducimus ex eum exercitationem? Illum, possimus esse! Harum magnam aspernatur error labore doloribus repellendus ab quaerat illo reiciendis veniam, qui nemo quos
+                    voluptatem molestiae eius eum accusamus unde. Voluptatibus provident, in cum fugit aut veritatis? Illo, vitae. Assumenda ad, cumque nisi vel, natus eaque esse facere molestias quis quam iste dolore? Asperiores temporibus ut doloremque,
+                    nesciunt exercitationem quisquam, sunt neque est eos, dolorem aperiam distinctio. Dolor, corporis. Natus nulla suscipit aliquid blanditiis ea atque. Praesentium corrupti in magni iure suscipit. Accusantium cum deserunt id est in sequi
+                    dolor sed numquam! Cum quae obcaecati provident, amet tenetur error? Laudantium quo asperiores excepturi beatae blanditiis illum, eligendi voluptatibus veritatis repudiandae assumenda quas, voluptas necessitatibus, quos ducimus consequuntur!
+                    Eos repellat temporibus similique nesciunt suscipit illum, ipsa quasi ipsum officiis ut. Distinctio, alias voluptatem! Temporibus velit, praesentium mollitia sapiente neque voluptatem quidem tempore obcaecati totam magni eum ducimus
+                    pariatur, iusto, nihil quo animi culpa? Officia, porro ipsa. Cupiditate rerum temporibus inventore! Autem eum nisi assumenda similique in repudiandae, labore illo beatae dolorum quibusdam soluta ipsam aperiam error quidem libero recusandae
+                    qui perspiciatis nemo enim odit eligendi optio aliquam. Laborum, ratione itaque? Aspernatur cupiditate eius dignissimos a eaque atque, praesentium, fugit laborum necessitatibus dicta hic? Voluptates temporibus sunt veniam mollitia
+                    quidem harum fugit aperiam quis! Explicabo eligendi id exercitationem deleniti officiis neque. Reprehenderit doloremque laudantium eum repellat! Minus quisquam facere distinctio soluta. Quisquam, iure. Nostrum molestiae et consectetur,
+                    minus voluptas odit possimus fugit, nulla fuga natus aut dicta itaque animi cumque debitis? Dignissimos at aliquid necessitatibus, recusandae sed rerum mollitia quos vitae accusamus ullam aperiam dolores provident cumque pariatur deleniti
+                    architecto blanditiis soluta impedit. Sed provident facere eveniet dolorem doloribus fugiat error? Quia saepe, architecto, modi magni at possimus corporis alias, repellendus totam dolores odio. Necessitatibus, eos nam asperiores sapiente
+                    ut optio cupiditate accusantium recusandae, praesentium, voluptatem consequuntur repudiandae tempore vero similique. Sit illo voluptatem eveniet, natus nobis, distinctio, magnam at harum dolorum aliquid expedita est dolore quibusdam
+                    exercitationem delectus perspiciatis error cum accusantium temporibus doloremque fugiat veritatis non? Labore, molestiae saepe. Accusantium, ab explicabo. Beatae vel fugiat voluptatum dolor illum ipsam, at eligendi mollitia modi facere
+                    adipisci facilis molestiae ea sunt accusamus et dolorem, quod magnam temporibus atque cum tempora amet? Quasi impedit atque excepturi, eligendi obcaecati odit repellendus nostrum architecto commodi laudantium a? Similique possimus
+                    voluptas, reprehenderit consequuntur ipsum minus doloribus, natus voluptatum amet maxime id voluptatibus totam velit ad. Totam voluptatem illo vero quia quasi temporibus rem repellendus cum laborum itaque perferendis blanditiis voluptas
+                    nemo maiores adipisci dolore hic, facilis perspiciatis reprehenderit. Aut fuga ea placeat reiciendis, deleniti velit! Sunt, quibusdam suscipit? Reprehenderit eius sequi perspiciatis ipsum illo, quo facere quae fugit ullam possimus!
+                    Adipisci dignissimos sit sed quas? Nihil necessitatibus, expedita ad excepturi odit molestias et illum fugit!
+                </p>
+
+            </div>
+
+            <!-- Columna Video -->
+            <div class="col-md-7 d-none d-md-grid columns align-content-center p-0">
+                <div>
+                    <video class="img img-fluid" autoplay loop muted>
+                        <source src="https://drive.google.com/uc?export=view&id=146MBQUevmjkSJ6PQh_RYXRtGpSxEEKtr"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="frame" id="load" style="display: none">
+        <div class="center2">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>
