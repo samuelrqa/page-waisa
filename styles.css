@@ -21,8 +21,13 @@
     background-color: var(--primary-color);
 }
 
+figure {
+    z-index: 1;
+}
+
 .icon {
     cursor: pointer;
+    margin-right: -2px;
 }
 
 #view-pass {
@@ -97,6 +102,7 @@
 }
 
 .btn-outline {
+    background-color: transparent;
     border: solid 2px var(--primary-color);
     border-radius: 5px;
     color: var(--primary-color);
@@ -193,18 +199,58 @@
     font-weight: 500;
 }
 
-.form-control:focus {
-    color: #212529;
-    background-color: #fff;
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: inset 0 0 0 0.1rem rgba(13, 110, 253, .25);
-}
-
 .btn-toolbar {
     height: fit-content;
 }
 
 .btn-toolbar .btn {
     width: 106px;
+}
+
+
+/* LOAN REQUEST */
+
+#nav-request {
+    background-color: var(--primary-color);
+}
+
+#boton-buscar {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+#buscar {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: inset 0 0 0 0.15rem #002c6f5d;
+}
+
+i {
+    cursor: pointer;
+}
+
+#loan-state th {
+    background-color: #e9ecef;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#loan-state span {
+    display: block;
+}
+
+#loan-state td {
+    vertical-align: middle;
+}
+
+#loan-state .current-state {
+    background-color: var(--primary-color);
+    color: white;
 }
