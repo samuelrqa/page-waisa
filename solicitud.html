@@ -103,40 +103,82 @@
         </div>
         <div class="container">
             <div class="row">
-
-
-                <form class="px-5">
+                <h4 class="mb-2 mt-5 mt-md-4">Datos de la solicitud</h4>
+                <form class="px-5 mt-4">
                     <div class="row mb-3">
                         <label for="empleado" class="col-sm-2 col-form-label">Empleado</label>
-                        <div class="col-sm-10 col-lg-6">
-                            <input type="email" class="form-control" id="empleado">
+                        <div class="col-sm-10">
+                            <a href="#" class="form-control-plaintext" id="empleado" readonly>
+                                71707526 — Hernan Alonso Sanchez Garcia 71707526 — Jefe de Crédito y Cobranzas — Aceros
+                                Industriales Medellín
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="d-sm-flex justify-content-between">
+                        <div class="d-sm-inline-flex mb-3">
+                            <label for="descripcion" class="col-sm-3 col-md-4 col-form-label">Fecha inicio</label>
+                            <div class="col-sm-9 col-md-8">
+                                <input type="date" class="form-control" id="descripcion">
+                            </div>
+                        </div>
+                        <div class="d-sm-inline-flex mb-3">
+                            <label for="descripcion" class="col-sm-3 col-md-4 col-form-label">Fecha final</label>
+                            <div class="col-sm-9 col-md-8">
+                                <input type="date" class="form-control" id="descripcion">
+                            </div>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3">
+                        <label for="descripcion" class="col-sm-3 col-md-2 col-form-label">Descripción</label>
+                        <div class="col-sm-9 col-lg-4">
+                            <input type="text" class="form-control" id="descripcion">
                         </div>
                     </div>
 
+                    <div class="row mb-3 input-container right-icon">
+                        <label for="cliente" class="col-sm-3 col-md-2 col-form-label">Cliente</label>
+                        <div class="col-sm-9 col-lg-4 form-group-input">
+                            <i class="icono fas fa-search pe-4" onclick="alert('Buscar cliente')"></i>
+                            <input type="text" class="form-control" id="cliete">
+                        </div>
+                    </div>
 
+                    <div class="row mb-3 input-container right-icon">
+                        <label for="cliente" class="col-sm-3 col-md-2 col-form-label">Cargar documentos</label>
+                        <div class="col-sm-9 col-lg-4 form-group-input">
+                            <i class="icono fas fa-search pe-4" onclick="alert('Cargar documentos')"></i>
+                            <input type="text" class="form-control" id="cliete">
+                        </div>
+                    </div>
                 </form>
+            </div>
 
+            <div class="row">
+                <h4 class="mb-2 mt-5 mt-md-4">Informe de visita del vendedor</h4>
+                <form class="px-5 g-3">
+                    <div class="d-sm-flex justify-content-between">
+                        <div class="d-sm-inline-flex mb-3">
+                            <label for="descripcion" class="col-sm-3 col-md-4 col-form-label">Promedio compras mes Ferrosos</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
 
-                <div class="form-row">
-                    <div class="form-group col-7 input-container right-icon">
-                        <div class="form-group-input">
-                            <i class="icono fas fa-eye" id="view-pass" onclick="changeIcon(this)"></i>
-                            <input type="password" class="form-control mx-auto form-input" name="password" />
+                        <div class="d-sm-inline-flex mb-3">
+                            <label for="descripcion" class="col-sm-3 col-md-4 col-form-label">Promedio compras mes No Ferrosos</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </main>
-
-
 
     <script src="./main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
