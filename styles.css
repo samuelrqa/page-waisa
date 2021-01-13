@@ -117,6 +117,10 @@ figure {
     background: var(--primary-color);
 }
 
+.btn-outline:focus {
+    outline: var(--primary-color) auto 1px;
+}
+
 .form-group-input {
     position: relative;
 }
