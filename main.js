@@ -211,7 +211,15 @@ if (document.getElementById("form-validate")) {
     });
 }
 
-window.addEventListener("load", () => {});
+window.addEventListener("load", () => {
+    let forms = document.getElementsByTagName('form');
+    for (const form of forms) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+        })
+        console.log(form);
+    }
+});
 
 function toggleCollapse() {
     let figure = document.getElementById("logo-collapsed");
