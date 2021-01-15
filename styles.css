@@ -285,3 +285,41 @@ i {
     background-color: var(--primary-color);
     color: white;
 }
+
+input[type='number'] {
+    text-align: end;
+}
+
+input[type='checkbox'],
+input[type='checkbox']:active {
+    border: solid 1px var(--primary-color);
+}
+
+input[type='checkbox']:focus {
+    box-shadow: inset 0 0 1px 0.1rem #002c6f5d;
+}
+
+textarea {
+    text-align: justify;
+}
+
+#commentary {
+    padding-right: 2em;
+    scrollbar-width: thin;
+    scrollbar-color: #002c6f5d;
+}
+
+#commentary::-webkit-scrollbar {
+    cursor: pointer;
+    width: 0.4em;
+}
+
+#commentary::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3.3px #002c6f5d;
+    border-radius: 10px;
+}
+
+#commentary::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px #002c6f5d;
+}

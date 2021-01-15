@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+    <!--HELL9004 - Start - CSCOL-->
+    <title id="Title">Exact Synergy Enterprise - Hernan Alonso Sanchez Garcia 71707526</title>
+    <link id="ShortcutIcon" rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/exact2.ico">
+    </link>
+    <link id="Icon" rel="icon" type="image/vnd.microsoft.icon" href="images/exact2.ico">
+    </link>
+    <!--HELL9004 - End - CSCOL-->
+    <link href="/empleados/StyleBundles/jqueryui?v=na24qIRM2sMMJSjo8ef-FOsWKaehG6B4BlhkXPA_xcM1" rel="stylesheet" />
+
+
+    <script type="text/javascript">
+        var Popup;
+    </script>
+
+
+    <!--<download id="dwn" style="behavior:url(#default#download)" />-->
+    <script type="text/javascript">
+        var PopupBody;
+
+        //The loadcount is used to count which load you are on, if you do not want to 
+        //see the alerts on the first page load (or when you press the menus at the top)
+        //then just set this loadcount to 0, otherwise set it to 1
+        var loadcount = 0;
+        var PopHeight = 50;
+        var PopWidth = 100;
+        var PopTimer;
+        var Position;
+        var PopUpAlertTime;
+        var url = "";
+        var x = 0;
+        var y = 0;
+
+        function onDone(src) {
+            //Popup.document.charset = 'utf-8';
+            //Popup.document.write(src);
+            //Popup.document.close();
+            PopUpShow();
+            PopUpResize();
+            if (PopUpAlertTime > 0) {
+                PopTimer = window.setTimeout("ClosePopup()", (1000 * PopUpAlertTime));
+            }
+        }
+
+        function PopInit(pHeight, pWidth) {
+            if (PopTimer != null) {
+                window.clearTimeout(PopTimer);
+            }
+            PopHeight = 65;
+            if (pHeight > PopHeight) {
+                PopHeight = pHeight;
+            }
+            if (PopHeight > screen.availHeight) {
+                PopHeight = screen.availHeight;
+            }
+            PopWidth = 100;
+            if (pWidth > PopWidth) {
+                PopWidth = pWidth;
+            }
+            if (PopWidth > screen.availWidth) {
+                PopWidth = screen.availWidth;
+            }
+            if (Popup == null) {
+                Popup = "init";
+            }
+
+        }
+
+        function NavMenuDockWidth(x) {
+            var navMenuDock = $('iframe[id="Products"]').contents().find('#hdnDockMenu').val()
+            var divMenuWidth = 0;
+            if (navMenuDock == "1")
+                divMenuWidth = $('iframe[id="Products"]').contents().find('#divMenuNavMain').width();
+            else if (navMenuDock == "2")
+                divMenuWidth = $('iframe[id="Products"]').contents().find('#divMenuNavMainCollapseDock').width();
+
+            x = x - divMenuWidth;
+            return x;
+        }
+
+        function PopUpResize() {
+            /*if (Popup != null && Popup.document.body != null) {
+               var d = Popup.document.getElementById('list');
+               if (d != null) {
+                  var h = d.offsetHeight;
+                  var w = d.offsetWidth;
+                  PopInit(h, w)
+                  //Popup.hide();
+                  ClosePopup();
+                  PopUpShow();
+               }
+            }*/
+            y = $(window).height() - PopHeight - 72;
+            x = $(window).width() - PopWidth - 157 + 140;
+            x = NavMenuDockWidth(x);
+        }
+
+        function PopUpShow() {
+            var err;
+
+            switch (Position) {
+                case 1: // bottom left
+                    x = 0;
+                    y = screen.availHeight - PopHeight;
+                    break;
+                case 2: // top right
+                    x = screen.availWidth - PopWidth;
+                    y = 0;
+                    break;
+                case 3: // top left
+                    x = 0;
+                    y = 0;
+                    break;
+                case 4: // Center screen
+                    x = (screen.availWidth - PopWidth) / 2;
+                    y = (screen.availHeight - PopHeight) / 2;
+                    break;
+                default: // bottom right
+                    x = screen.availWidth - PopWidth;
+                    y = screen.availHeight - PopHeight;
+            }
+
+            try {
+                //Popup.show(x, y, PopWidth, PopHeight);
+
+            } catch (err) {
+                return;
+            }
+        }
+
+        var isPopupShowing = false;
+
+        function ShowPopText(txt, AlertTime, pHeight, pWidth, position) {
+            Position = position;
+            PopInit(pHeight, pWidth);
+            PopupBody = Popup.document.body;
+            PopupBody.innerHTML = txt;
+            PopUpShow()
+            if (AlertTime > 0) {
+                PopTimer = window.setTimeout("ClosePopup()", (1000 * AlertTime));
+            }
+        }
+
+        function ShowPop(url, AlertTime, pHeight, pWidth, position) {
+            PopUpAlertTime = AlertTime;
+            Position = position;
+            PopInit(pHeight, pWidth);
+            this.url = url;
+            var dialog = GetMainWindowFrame().find('#dialog');
+            if (dialog != null)
+                dialog.css('visibility', "visible");
+            onDone();
+            isPopupShowing = true;
+            //dwn.startDownload(url, onDone);
+        }
+
+        function ClosePopup() {
+            isPopupShowing = false;
+            var dialog = GetMainWindowFrame().find('#dialog');
+            if (dialog != null)
+                dialog.css('visibility', 'hidden');
+        }
+
+        function PopUpPassUrl(url) {
+            ClosePopup();
+            window.focus();
+            window.open(url, 'MainWindow');
+        }
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        var sound;
+
+        function PlaySound(SoundNum) {
+            if ((SoundNum >= 1) && (SoundNum <= 4)) {
+                $('#idSound')[0].src = "sound/sound" + SoundNum + ".wav";
+                $('#h5Sound', GetMainWindowFrame()).attr("src", "sound/sound" + SoundNum + ".wav");
+                $('#h5Sound', GetMainWindowFrame()).attr("autoplay", true);
+                this.sound = SoundNum;
+            }
+            window.setTimeout("$('#idSound')[0].src='sound/sound0.wav'", (2000));
+        }
+
+        var prtHelpExpanded = false;
+
+        function prtStartHelp(helpFile) {
+            prtHelpExpanded = true;
+            prtSetFrameCols();
+            var frame = SysGetElement('Help');
+            if (frame == null)
+                return;
+            frame.src = "HlpGuide.aspx?mode=2&helpfile=" + helpFile;
+        }
+
+        function prtStartHelpID(helpID) {
+            prtHelpExpanded = true;
+            prtSetFrameCols();
+            var frame = SysGetElement('Help');
+            if (frame == null)
+                return;
+            frame.src = "HlpGuide.aspx?mode=2&helpid=" + helpID;
+        }
+
+        function prtStopHelp() {
+            prtHelpExpanded = false;
+            prtSetFrameCols();
+        }
+        var prtLeftMenuExpanded = true;
+
+        function prtSwitchExpandLeft() {
+            prtLeftMenuExpanded = !prtLeftMenuExpanded;
+            prtSetFrameCols();
+            if (prtLeftMenuExpanded)
+                return 1;
+            else
+                return 0;
+        }
+
+        function prtSetFrameCols() {
+            var frame = SysGetElement('FramesetBottom');
+            if (frame == null)
+                return;
+            var cols;
+            if (prtHelpExpanded)
+                cols = "200"
+            else
+                cols = "0";
+            if (prtLeftMenuExpanded)
+                cols += ",141";
+            else
+                cols += ",17";
+            cols += ",*";
+            frame.cols = cols;
+        }
+    </script>
+    <script src="/empleados/ScriptBundles/system?v=d3nBclV3P-J0ayJUPVOUGnzi7q2OFwd7B1gaGUlI3Go1"></script>
+
+    <script src="/empleados/ScriptBundles/syscontrolhelp?v=YpT5j8coGQGRh_P4iKhjom4Bzbs9yWDzC4D6ke3cbxA1"></script>
+
+
+    <script type="text/javascript">
+        function CheckCookie() {
+            var v = SysGetCookie("ExactClient");
+            if (v != null) {
+                if (window.name == null || window.name == '') {
+                    window.document.location = "SysAccessDenied.aspx?mode=1"
+                }
+            } else {
+                window.name = "ExactClient";
+                SysSetCookie("ExactClient", "1");
+            }
+        }
+        var allowSwitch = false;
+
+        function ClearSession() {
+            var cook = document.cookie;
+            if (!allowSwitch && cook.indexOf("DelegationID") == -1) {
+                SysDeleteCookie("ExactClient");
+                SysCallback("ClearSession.aspx");
+                document.execCommand('ClearAuthenticationCache', false);
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var firstTime = true;
+
+        function onFrameLoaded() {
+            HlpHtControl();
+            if (!firstTime)
+                CreatePopUpDiv();
+            firstTime = false;
+        }
+
+        function IsIEorEdgeBrowser() {
+            var ua = window.navigator.userAgent;
+            if (ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident') > 0 || ua.indexOf('Edge') > 0)
+                return true;
+
+            return false;
+        }
+
+        function calculateDynamicHeight() {
+            if (navigator.userAgent.match(/iPad/i)) {
+                var topHeight = 0;
+                var h = $(window).height();
+                topHeight = $("#row0").height();
+                if (h <= topHeight || IsIEorEdgeBrowser())
+                    $("#Products").css({
+                        'height': h
+                    });
+                else
+                    $("#Products").css({
+                        'height': (h - topHeight)
+                    });
+            } else {
+                //Skip this function if not IPad.
+            }
+
+        }
+
+        function CreatePopUpDiv() {
+            if (Popup) {
+                if (Popup == "init") {
+                    var div = document.createElement("div");
+                    div.id = "dialog";
+                    var style = "left:" + x + "px;top:" + y + "px;width:" + PopWidth + "px;height:" + PopHeight + "px;position:fixed;z-index:10;";
+                    div.style.cssText = style;
+                    div.innerHTML = '<iframe id="popupalert" style="border:0px" src="' + url + '"></iframe>';
+                    GetMainWindowFrame().find('body').append(div);
+                    GetMainWindowFrame().find('#popupalert').attr('height', PopHeight);
+                    GetMainWindowFrame().find('#popupalert').attr('width', PopWidth);
+                    if (sound) {
+                        //DBR 47.667.590 Submenu (Entry/Report/Setup) could not be pressed
+                        var divSound = document.createElement("audio")
+                        divSound.id = "h5Sound";
+                        divSound.src = "sound/sound" + sound + ".wav";
+                        GetMainWindowFrame().find('body').append(divSound);
+                        //top.frames['MainWindow'].document.body.innerHTML += '<audio id="h5Sound" src="sound/sound' + sound + '.wav"></audio>';
+                    }
+
+                    if (!isPopupShowing)
+                        GetMainWindowFrame().find('#dialog').css('visibility', 'hidden');
+                }
+            }
+        }
+
+        function GetMainWindowFrame() {
+            return $('#MainWindow', $('iframe[id="Products"]').contents()).contents();
+        }
+
+        $(window).on('load',
+            function() {
+                calculateDynamicHeight();
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE ");
+                CreatePopUpDiv();
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {} else {
+                    PlaySound(sound);
+                }
+                $("iframe[id='Toolbar']").width($("iframe[id='Products']").width());
+            }
+        );
+
+        $(window).resize(
+            function() {
+                calculateDynamicHeight();
+                $("iframe[id='Toolbar']").width($("iframe[id='Products']").width());
+            }
+        );
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+        
+        iframe {
+            display: block;
+        }
+        
+        #dMain {
+            width: 100%;
+            height: 100%;
+            display: table;
+            table-layout: fixed;
+        }
+        
+        .row {
+            display: table-row;
+        }
+        
+        .cell {
+            display: table-cell;
+        }
+        
+        .column {
+            display: table-cell;
+        }
+        
+        #FramesetBottom {
+            display: table;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <bgsound id="idSound" loop="1">
+
+        <div id="dMain">
+            <div id="row0" class="row" style="height:100%;">
+                <div class="cell" style="height:100%;width:100%;">
+                    <iframe id="Products" name="Products" src="TopMenu.aspx" scrolling="no" frameborder="0" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+        <iframe src="wflalertpopup.aspx" style="display: none"></iframe>
+
+</body>
+
+</html>
+<noscript>
+    <div class="Error" style="font:12px arial;">Por favor, habilite el script de cliente para utilizar de forma plena la
+        página web.</div>
+</noscript>
+<script type="text/javascript">
+    function __MoveSecuredFields() {
+        SysSet('__securedFields', '');
+    }
+</script>

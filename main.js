@@ -297,3 +297,24 @@ function doLogin() {
 function prueba() {
     window.location = "nueva.html";
 }
+
+// solicitud.html
+
+function setRentPrice(chk) {
+    let rentPrice = document.getElementById('rent-price');
+    if (chk.checked) {
+        rentPrice.removeAttribute('disabled');
+        rentPrice.focus();
+    } else {
+        rentPrice.setAttribute('disabled', true)
+    }
+}
+
+function writeSignature() {
+    let commentary = document.getElementById('commentary');
+    if (commentary.value) {
+        console.log('tiene texto')
+    } else {
+        commentary.value += '\nFirma del empleado que ingresa la solicitud';
+    }
+}
