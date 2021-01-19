@@ -312,9 +312,34 @@ function setRentPrice(chk) {
 
 function writeSignature() {
     let commentary = document.getElementById('commentary');
-    if (commentary.value) {
-        console.log('tiene texto')
+    let commentaryText = [];
+    commentaryText = commentary.value;
+    if (commentaryText) {
+        if (!commentaryText.includes('Firma del empleado que ingresa la solicitud')) {
+            commentary.value += '\nFirma del empleado que ingresa la solicitud';
+            commentary.focus();
+        } else {
+            commentary.focus();
+        }
     } else {
         commentary.value += '\nFirma del empleado que ingresa la solicitud';
+        commentary.focus();
+    }
+}
+
+// Detectar cambio rango fecha modificación docs
+function setDateRange(select) {
+    let dateRange = document.getElementById(select.id);
+    let selectedRange = dateRange.options[dateRange.selectedIndex].value;
+    let startDay = document.getElementById('start-day');
+    let endDay = document.getElementById('end-day');
+
+    if (selectedRange == "custom") {
+        startDay.removeAttribute('disabled');
+        endDay.removeAttribute('disabled');
+        startDay.focus();
+    } else {
+        startDay.setAttribute('disabled', true);
+        endDay.setAttribute('disabled', true);
     }
 }

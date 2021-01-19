@@ -295,8 +295,14 @@ input[type='checkbox']:active {
     border: solid 1px var(--primary-color);
 }
 
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: #002c6f5d;
+}
+
 input[type='checkbox']:focus {
-    box-shadow: inset 0 0 1px 0.1rem #002c6f5d;
+    border: #002c6f;
+    box-shadow: inset 0 0 1px 0.2rem #002c6f70;
 }
 
 textarea {
@@ -322,4 +328,8 @@ textarea {
 #commentary::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px #002c6f5d;
+}
+
+.btn-toolbar button {
+    padding: 6px 8px;
 }
