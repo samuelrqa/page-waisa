@@ -42,7 +42,7 @@
         <!-- Consultar Solicitud -->
         <div class="container-fluid">
             <h2 class="text-center text-sm-start mt-4 mt-sm-2">Consultar solicitud</h2>
-            <div class="row">
+            <div class="row border-bottom pb-3 rounded-bottom">
                 <div class="col-sm-6 col-lg-4 pe-sm-0">
                     <div class="d-flex align-content-center m-2 ms-0">
                         <div class="input-group">
@@ -142,7 +142,7 @@
                     <div class="row mb-3 input-container right-icon">
                         <label for="customer" class="col-sm-3 col-md-2 col-form-label">Cliente</label>
                         <div class="col-sm-9 col-lg-5 form-group-input">
-                            <input type="text" class="form-control" id="customer" onkeyup="console.log(this.value)">
+                            <input type="text" class="form-control" id="customer" onkeyup="console.log('Buscando...' + this.value)">
                         </div>
                     </div>
 
@@ -150,7 +150,7 @@
                         <label for="contacts" class="col-sm-3 col-md-2 col-form-label">Contactos</label>
                         <div class="col-sm-9 col-lg-5 form-group-input">
                             <i class="icono fas fa-search pe-4 icons" onclick="console.log('Buscar contacto')" data-bs-toggle="modal" data-bs-target="#modal-contact"></i>
-                            <input type="text" class="form-control" id="contacts">
+                            <input type="text" class="form-control" id="contacts" onkeyup="console.log('Buscando...' + this.value)" />
                         </div>
                     </div>
 
@@ -158,7 +158,7 @@
                         <label for="load-docs" class="col-sm-3 col-md-2 col-form-label">Cargar documentos</label>
                         <div class="col-sm-9 col-lg-5 form-group-input">
                             <i class="icono fas fa-search pe-4 icons" onclick="console.log('Cargar documentos')" data-bs-toggle="modal" data-bs-target="#modal-docs"></i>
-                            <input type="text" class="form-control" id="load-docs">
+                            <input type="text" class="form-control" id="load-docs" onkeyup="console.log('Buscando...' + this.value)" />
                         </div>
                     </div>
 
@@ -209,8 +209,8 @@
                     </div>
 
                     <div class="row">
-                        <h5 class="mb-3 mt-4">Describa los siguientes puntos</h5>
-                        <ol class="ps-4 ps-md-5">
+                        <h5 class="mt-3">Describa los siguientes puntos:</h5>
+                        <ol class="m-0 ps-4 ps-md-5">
                             <li>Qué Maquinaria Posee el Cliente y su Estado</li>
                             <li>Cuáles son sus Principales Clientes</li>
                             <li>Describa el motivo del Estudio de Crédito y su Concepto</li>
@@ -220,6 +220,7 @@
                             <div class="input-container right-icon mt-3">
                                 <i class="fas fa-expand-arrows-alt icono icons" id="icon-expand" title="Pantalla completa"></i>
                                 <i class="fas fa-signature icono icons mt-4 pe-2" title="Firmar" onclick="writeSignature()"></i>
+                                <i class="fas fa-eraser icono icons mt-5" title="Borrar" onclick="clearTextarea()"></i>
                             </div>
 
                             <textarea class="form-control" name="commentary" id="commentary" rows="8"></textarea>
@@ -248,7 +249,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center justify-content-sm-end my-4">
-                        <button class="border-1 btn-ppal me-1" type="submit" name="save-request" id="save-request">Guardar</button>
+                        <button class="btn-ppal me-1" type="submit" name="save-request" id="save-request">Guardar</button>
                         <button class="border-1 btn-outline ms-2" type="reset" name="cancel-request" id="cancel-request">Cancelar</button>
                     </div>
                 </form>
@@ -515,7 +516,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-lg-6 mb-3">
+                                <div class="mb-3">
                                     <label for="modify-date" class="col-form-label">Modificado:</label>
                                     <div class="row">
                                         <div class="col-md-6 col-lg-4">
@@ -525,20 +526,26 @@
                                                 <option value="0">Hoy</option>
                                                 <option value="1">Ayer</option>
                                                 <option value="7">Última semana</option>
+                                                <option value="15">Última quincena</option>
                                                 <option value="30">Último mes</option>
                                                 <option value="90">Último trimestre</option>
                                                 <option value="365">Último año</option>
                                             </select>
                                         </div>
-                                        <div class="col-lg-8 d-sm-flex justify-content-evenly">
-                                            <span>
-                                                <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
-                                                    id="start-day" disabled/>
-                                            </span>
-                                            <span>
-                                                <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
-                                                    id="end-day" disabled />
-                                            </span>
+                                        <div class="col-lg-8 d-sm-flex">
+                                            <div class="d-sm-flex align-items-baseline justify-content-evenly justify-content-xl-end w-100">
+                                                <i class="fas fa-chevron-left me-xl-4 d-none d-sm-inline-block"></i>
+                                                <span>
+                                                    <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
+                                                        id="start-day" disabled />
+                                                </span>
+                                                <i class="fas fa-circle fa-xs mx-xl-4 d-none d-sm-inline-block"></i>
+                                                <span>
+                                                    <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
+                                                        id="end-day" disabled />
+                                                </span>
+                                                <i class="fas fa-chevron-right m-xl-3 ms-xl-4 d-none d-sm-inline-block"></i>
+                                            </div>
                                         </div>
                                     </div>
 
