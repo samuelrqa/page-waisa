@@ -117,11 +117,10 @@ figure {
 
 .btn-ppal:hover {
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .btn-ppal:focus {
-    color: #ffffff;
     outline: var(--primary-color) auto 1px;
 }
 
@@ -138,7 +137,9 @@ figure {
 }
 
 .btn-outline:hover {
-    font-weight: 600;
+    background-color: #002c6f47;
+    border-color: #002c6f50;
+    font-weight: 700;
 }
 
 .btn-outline:focus {
@@ -334,4 +335,40 @@ textarea {
 
 .btn-toolbar button {
     padding: 6px 8px;
+}
+
+#commentary:focus {
+    position: absolute;
+    top: 50%;
+    width: 90vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+
+/* Prueba botones */
+
+#footerpag button {
+    background: #ffffff;
+    border: solid 1px #002c6f;
+    border-radius: 5px;
+    color: #002c6f;
+    font-weight: 400;
+    outline: 0;
+}
+
+#footerpag button:hover {
+    background: #002c6f50;
+    border-color: #002c6f47;
+    font-weight: 700;
+}
+
+#footerpag #aceptarModal {
+    background: #002c6f;
+    color: #ffffff;
+}
+
+#footerpag #aceptarModal:hover {
+    background: #002c6f;
+    color: #ffffff;
 }
