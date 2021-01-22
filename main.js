@@ -1,20 +1,13 @@
 const divBody = document.getElementById("body");
 let date = new Date();
-let today = date.toLocaleDateString();
-console.log(date);
-console.log(typeof date);
 
-console.log(today);
-console.log(typeof today);
+// for (let i = 0; i < today.length - 1; i++) {
+//     if (today[i].length < 2) {
+//         today[i] = 0 + today[i];
+//     }
+// }
 
-today = today.split('/').reverse().join('-')
-console.log(today);
-console.log(typeof today);
-
-today = today.replace(/^(\d{4})-(\d{2})-(\d{2})$/g, '$3/$2/$1');
-console.log(today);
-console.log(typeof today);
-
+// today = today.join("-");
 
 window.addEventListener("load", () => {
     let forms = document.getElementsByTagName("form");
@@ -134,7 +127,7 @@ function writeSignature() {
 
 function clearTextarea() {
     let commentary = document.getElementById("commentary");
-    commentary.value = '';
+    commentary.value = "";
     commentary.focus();
 }
 
@@ -144,11 +137,11 @@ function setDateRange(select) {
     let selectedRange = dateRange.options[dateRange.selectedIndex].value;
     let startDay = document.getElementById("start-day");
     let endDay = document.getElementById("end-day");
-    endDay.setAttribute('value', today);
 
     if (selectedRange == "custom") {
         startDay.removeAttribute("disabled");
         endDay.removeAttribute("disabled");
+        endDay.setAttribute("value", formatDate(date, 'yyyy-mm-dd'));
         startDay.focus();
     } else {
         startDay.setAttribute("disabled", true);
@@ -177,4 +170,16 @@ function setDateRange(select) {
         default:
             break;
     }
+}
+
+function formatDate(date, format) {
+    var mes = date.getMonth() + 1;
+    if (mes < 10) mes = '0' + mes
+
+    const r = {
+        mm: mes,
+        dd: date.getDate(),
+        yyyy: date.getFullYear(),
+    }
+    return format.replace(/mm|dd|yyyy/gi, matched => r[matched])
 }
