@@ -1,249 +1,371 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seguimiento C X C</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./styles.css"/>
-  </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
 
-  <body>
+<body>
     <header>
-      <div class="fixed-top">
-        <div class="jumbotron position-absolute top-0 end-0">
-          <nav class="navbar">
-            <div class="mb-auto mt-2 position-relative icon d-none" id="user-icon-stack" style="color: darkblue"
-                 onclick="toggleCollapse()">
-                        <span class="fa-stack text-light" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                              onmouseover="setTitle(this)">
+        <div class="fixed-top">
+            <div class="jumbotron position-absolute top-0 end-0">
+                <nav class="navbar">
+                    <div class="mb-auto mt-2 position-relative icon d-none" id="user-icon-stack" style="color: darkblue" onclick="toggleCollapse()">
+                        <span class="fa-stack text-light" data-bs-toggle="tooltip" data-bs-placement="bottom" onmouseover="setTitle(this)">
                             <i class="far fa-circle fa-stack-2x"></i>
                             <i class="fas fa-user fa-stack-1x"></i>
                         </span>
+                    </div>
+                    <div class="border mb-auto mt-1 popover-header px-1 position-relative rounded-start icon" onclick="toggleCollapse()">
+                        <i class="fas fa-angle-right fa-lg" id="collapse-icon"></i>
+                    </div>
+                    <figure class="bg-white rounded-start" id="logo-collapsed">
+                        <img src="https://drive.google.com/uc?export=view&id=1UBjwwfVYliVPYfa5Q1YaSpyyID8ZHTUc" class="rounded-top shadow" style="max-width: 250px" alt="aceros-header" />
+                        <figcaption class="fw-bold pe-sm-2 rounded-bottom shadow text-center text-sm-end" id="user-name">
+                        </figcaption>
+                    </figure>
+                </nav>
             </div>
-            <div class="border mb-auto mt-1 popover-header px-1 position-relative rounded-start icon"
-                 onclick="toggleCollapse()">
-              <i class="fas fa-angle-right fa-lg" id="collapse-icon"></i>
+        </div>
+        <nav class="navbar p-2" id="nav-request">
+            <div>
+                <h4 class="m-0 text-light p-2">Seguimiento CxC (704)</h4>
             </div>
-            <figure class="bg-white rounded-start" id="logo-collapsed">
-              <img src="https://drive.google.com/uc?export=view&id=1UBjwwfVYliVPYfa5Q1YaSpyyID8ZHTUc"
-                   class="rounded-top shadow" style="max-width: 250px;" alt="aceros-header">
-              <figcaption class="fw-bold pe-sm-2 rounded-bottom shadow text-center text-sm-end"
-                          id="user-name"></figcaption>
-            </figure>
-          </nav>
-        </div>
-      </div>
-      <nav class="navbar p-2" id="nav-request">
-        <div>
-          <h4 class="m-0 text-light p-2">Seguimiento CxC (704)</h4>
-        </div>
-      </nav>
+        </nav>
     </header>
 
     <main>
-      <!-- Seguimiento -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="d-flex justify-content-evenly justify-content-sm-start m-2">
-            <button class="btn-ppal border-0 ms-1 px-3 py-1 rounded-pill" disabled>
-              Crear
-            </button>
-            <button class="btn-outline ms-1 px-3 py-1 rounded-pill" disabled>
-              Editar
-            </button>
-          </div>
-          <div class="col">
-            <div class="m-0">
-              <table class="table table-responsive table-bordered" id="loan-state">
-                <thead>
-                  <th scope="col">Creada</th>
-                  <th scope="col">Realizar</th>
-                  <th scope="col">Procesar</th>
-                </thead>
-                <tbody>
-                  <td scope='col' class="text-center">
-                    <span>Usuario</span>
-                    <span>Documento</span>
-                    <span>Fecha y hora</span>
-                  </td>
-                  <td class="text-center">
-                    <span>Empleado</span>
-                  </td>
-                  <td class="text-center">
-                    <span>Usuario</span>
-                    <span>Documento</span>
-                    <span>Autor</span>
-                  </td>
-                </tbody>
-              </table>
+        <!-- Seguimiento -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="d-flex justify-content-evenly justify-content-sm-start m-2">
+                    <button class="btn-ppal border-0 ms-1 px-3 py-1 rounded-pill" disabled>
+                        Crear
+                    </button>
+                    <button class="btn-outline ms-1 px-3 py-1 rounded-pill" disabled>
+                        Editar
+                    </button>
+                </div>
+                <div class="col">
+                    <div class="m-0">
+                        <table class="table table-responsive table-bordered" id="loan-state">
+                            <thead>
+                                <th scope="col">Creada</th>
+                                <th scope="col">Realizar</th>
+                                <th scope="col">Procesar</th>
+                            </thead>
+                            <tbody>
+                                <td scope="col" class="text-center">
+                                    <span>Usuario</span>
+                                    <span>Documento</span>
+                                    <span>Fecha y hora</span>
+                                </td>
+                                <td class="text-center">
+                                    <span>Empleado</span>
+                                </td>
+                                <td class="text-center">
+                                    <span>Usuario</span>
+                                    <span>Documento</span>
+                                    <span>Autor</span>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
-      </div>
+        <div class="container">
+            <div class="px-4 px-sm-0">
+                <h4 class="my-5 mt-md-4 text-center">PROGRAMACIÓN</h4>
+                <form class="px-lg-5 mt-4">
+                    <div class="d-sm-flex justify-content-between">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-start mb-3">
+                            <label for="check-type" class="col-form-label me-1">Tipo de seguimiento:</label>
+                            <div class="col-md-6 ms-lg-1">
+                                <select class="form-control form-select" id="check-type" aria-label="select check-type">
+                                    <option value="Llamada saliente" selected>
+                                        Llamada saliente
+                                    </option>
+                                    <option value="Visita">Visita</option>
+                                    <option value="Mail">Mail</option>
+                                    <option value="Comunicación escrita">
+                                        Comunicación escrita
+                                    </option>
+                                    <option value="Gestión del cliente">
+                                        Gestión del cliente
+                                    </option>
+                                    <option value="No gestionada">No gestionada</option>
+                                </select>
+                            </div>
+                        </div>
 
-      <div class="container">
-        <h4 class="my-5 mt-md-4 text-center">PROGRAMACIÓN</h4>
-        <form class="px-lg-5 mt-4">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="activity-origin" class="col-form-label me-1">Origen de la actividad:</label>
+                            <div class="col-md-6 input-container right-icon">
+                                <i class="fas fa-search icono icons" data-bs-toggle="modal" data-bs-target="#modal-activity-origin"></i>
+                                <input type="text" class="form-control" id="activity-origin" />
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="d-sm-flex justify-content-between">
+                    <div class="row mb-3 align-items-center">
+                        <label for="employee" class="col-sm-2 col-form-label">Empleado:</label>
+                        <div class="col-sm-10 ps-lg-4 ps-md-5 ps-xl-0" style="text-align: justify">
+                            <a href="#" id="employee" readonly>
+                                71707526 — Hernan Alonso Sanchez Garcia 71707526 — Jefe de
+                                Crédito y Cobranzas — Aceros Industriales Medellín
+                            </a>
+                        </div>
+                    </div>
 
-            <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-start mb-3">
-              <label for="check-type" class="col-form-label me-1">Tipo de seguimiento:</label>
-              <div class="col-md-6 ms-lg-1">
-                <select class="form-control form-select" id="check-type" aria-label="select check-type">
-                  <option value="Llamada saliente" selected>Llamada saliente</option>
-                  <option value="Visita">Visita</option>
-                  <option value="Mail">Mail</option>
-                  <option value="Comunicación escrita">Comunicación escrita</option>
-                  <option value="Gestión del cliente">Gestión del cliente</option>
-                  <option value="No gestionada">No gestionada</option>
-                </select>
-              </div>
+                    <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
+                        <div class="col-sm-3 d-sm-inline-flex mb-3">
+                            <label class="form-check-label me-2" for="correria">Correria</label>
+                            <input class="form-check-input" type="checkbox" name="correria" id="correria" />
+                        </div>
+                        <div class="col-sm-9 d-sm-flex justify-content-between">
+                            <label for="customer" class="col-auto col-form-label me-2">Cliente:</label>
+                            <div class="col">
+                                <input type="text" class="form-control" id="customer" onkeyup="console.log('Buscardo...' + this.value)" ; />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
+                        <div class="col-sm-6 col-md-5 d-sm-inline-flex mb-3 pe-sm-2">
+                            <label class="col-auto col-form-label me-2" for="subject">Asunto:</label>
+                            <input type="text" class="form-control" id="subject" list="subject-list" autocomplete="off" />
+                            <datalist id="subject-list">
+                                <option value="Labor de cobro">Labor de cobro</option>
+                                <option value="Seguimiento al cliente">
+                                    Seguimiento al cliente
+                                </option>
+                                <option value="Seguimiento abogado">
+                                    Seguimiento abogado
+                                </option>
+                                <option value="Cruce de cuentas">Cruce de cuentas</option>
+                            </datalist>
+                        </div>
+
+                        <div class="col-sm-6 col-md-5 d-sm-flex justify-content-between mb-3">
+                            <label for="reason" class="col-auto col-form-label me-2">Razón:</label>
+                            <input type="text" class="form-control" id="reason" list="reason-list" autocomplete="off" />
+                            <datalist id="reason-list">
+                                <option value="Cartera vencida">Cartera vencida</option>
+                                <option value="Cheque posfechado">Cheque posfechado</option>
+                                <option value="Ventas de contado pendientes">
+                                    Ventas de contado pendientes
+                                </option>
+                                <option value="Cheque devuelto">Cheque devuelto</option>
+                                <option value="Cobro preventivo">Cobro preventivo</option>
+                                <option value="Oferta descuento pronto pago">
+                                    Oferta descuento pronto pago
+                                </option>
+                                <option value="Conciliación cartera">
+                                    Conciliación cartera
+                                </option>
+                                <option value="Incumplimiento compromiso">
+                                    Incumplimiento compromiso
+                                </option>
+                                <option value="Cobro jurídico">Cobro jurídico</option>
+                                <option value="Cartera difícil recaudo">
+                                    Cartera difícil recaudo
+                                </option>
+                                <option value="Estudio de crédito">Estudio de crédito</option>
+                                <option value="Trámite documental">Trámite documental</option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="start-activity-date" class="col-form-label me-1">Fecha inicio actividad:</label>
+                            <div class="col-md-6 ms-lg-1">
+                                <input type="date" class="form-control" id="start-activity-date" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="end-activity-date" class="col-form-label me-1">Fecha final actividad:</label>
+                            <div class="col-md-6 input-container right-icon">
+                                <input type="date" class="form-control" id="end-activity-date" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-md-flex align-items-baseline justify-content-between mb-3">
+                        <div class="col-md-6 d-sm-flex mb-3 justify-content-between">
+                            <label class="col-auto col-form-label me-2" for="portfolio-price">Valor total
+                                cartera:</label>
+                            <div class="col-md-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control ps-4" id="portfolio-price" min="0" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-sm-flex justify-content-between justify-content-md-end">
+                            <label for="overdue-portfolio" class="col-auto col-form-label me-2">Valor cartera
+                                vencida:</label>
+                            <div class="col-md-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control ps-4" id="overdue-portfolio" min="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="payment-date" class="col-auto col-form-label">Fecha pago:</label>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" id="payment-date" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="mt-3">Observaciones:</h5>
+                        <div class="col mb-1" id="textarea">
+                            <div class="input-container right-icon mt-3">
+                                <i class="fas fa-expand-arrows-alt icono icons" id="icon-expand" title="Pantalla completa" onclick="toggleFullScreen();"></i>
+                                <i class="fas fa-signature icono icons mt-4 pe-2" title="Firmar" onclick="writeSignature()"></i>
+                                <i class="fas fa-eraser icono icons mt-5" title="Borrar" onclick="clearTextarea()"></i>
+                            </div>
+
+                            <textarea class="form-control" name="commentary" id="commentary" rows="8"></textarea>
+                        </div>
+                        <div class="d-flex mb-1">
+                            <span class="badge border-1 btn-outline me-1 p-1" id="sign" onclick="writeSignature()">Firmar</span>
+                            <span class="badge border-1 btn-outline ms-1 p-1" id="expand">Ampliar</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center justify-content-sm-end my-4">
+                        <button class="btn-ppal me-1" type="submit" name="save-request" id="save-request">
+                            Guardar
+                        </button>
+                        <button class="border-1 btn-outline ms-2" type="reset" name="cancel-request" id="cancel-request">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
 
-            <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
-              <label for="activity-origin" class="col-form-label me-1">Origen de la actividad:</label>
-              <div class="col-md-6 input-container right-icon">
-                <i class="fas fa-search icono icons"></i>
-                <input type="text" class="form-control" id="activity-origin">
-              </div>
-            </div>
-          </div>
+        <!-- Modal origen actividad -->
 
-          <div class="row mb-3">
-            <label for="employee" class="col-sm-2 col-form-label">Empleado</label>
-            <div class="col-sm-10">
-              <a href="#" class="form-control-plaintext" id="employee" readonly>
-                71707526 — Hernan Alonso Sanchez Garcia 71707526 — Jefe de Crédito y Cobranzas — Aceros
-                Industriales Medellín
-              </a>
-            </div>
-          </div>
+        <div class="modal fade p-0" id="modal-activity-origin" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalActivityOrigin" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="container-lg px-lg-5">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modal-activity-origin-title">Origen actividad</h3>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fas fa-times fa-lg icons"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-          <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
-            <div class="col-sm-3 d-sm-inline-flex mb-3">
-              <label class="form-check-label me-2" for="correria">Correria</label>
-              <input class="form-check-input" type="checkbox" name="correria" id="correria"/>
-            </div>
-            <div class="col-sm-9 d-sm-flex justify-content-between">
-              <label for="customer" class="col-auto col-form-label me-2">Cliente:</label>
-              <div class="col input-container right-icon">
-                <i class="fas fa-search icono icons"></i>
-                <input type="text" class="form-control" id="customer"/>
-              </div>
-            </div>
-          </div>
+                            <form class="row">
 
-          <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
-            <div class="col-sm-6 col-md-5 d-sm-inline-flex mb-3 pe-sm-2">
-              <label class="col-auto col-form-label me-2" for="subject">Asunto:</label>
-              <input type="text" class="form-control" id="subject" list="subject-list" autocomplete="off"/>
-              <datalist id="subject-list">
-                <option value="Labor de cobro">Labor de cobro</option>
-                <option value="Seguimiento al cliente">Seguimiento al cliente</option>
-                <option value="Seguimiento abogado">Seguimiento abogado</option>
-                <option value="Cruce de cuentas">Cruce de cuentas</option>
-              </datalist>
-            </div>
+                                <div class="d-flex justify-content-evenly justify-content-md-center" role="toolbar" id="docs-options-toolbar" aria-label="docs-options-toolbar">
+                                    <button type="button" class="btn" name="search-docs-toolbar" id="search-docs-toolbar">
+                                        <i class="fas fa-search fa-lg icons" title="Buscar"></i>
+                                    </button>
+                                    <button type="button" class="btn" name="new-docs-tollbar" id="new-docs-tollbar">
+                                        <i class="fas fa-user-plus fa-lg icons" title="Nuevo"></i>
+                                    </button>
+                                    <button type="reset" class="btn" name="reset-docs-form-toolbar" id="reset-docs-form-toolbar">
+                                        <i class="fas fa-broom fa-lg icons" title="Reestablecer"></i>
+                                    </button>
+                                    <button type="button" class="btn" name="delete-docs-toolbar" id="delete-docs-toolbar">
+                                        <i class="fas fa-user-minus fa-lg icons" title="Eliminar"></i>
+                                    </button>
+                                </div>
 
-            <div class="col-sm-6 col-md-5 d-sm-flex justify-content-between mb-3">
-              <label for="reason" class="col-auto col-form-label me-2">Razón:</label>
-              <input type="text" class="form-control" id="reason" list="reason-list" autocomplete="off"/>
-              <datalist id="reason-list">
-                <option value="Cartera vencida">Cartera vencida</option>
-                <option value="Cheque posfechado">Cheque posfechado</option>
-                <option value="Ventas de contado pendientes">Ventas de contado pendientes</option>
-                <option value="Cheque devuelto">Cheque devuelto</option>
-                <option value="Cobro preventivo">Cobro preventivo</option>
-                <option value="Oferta descuento pronto pago">Oferta descuento pronto pago</option>
-                <option value="Conciliación cartera">Conciliación cartera</option>
-                <option value="Incumplimiento compromiso">Incumplimiento compromiso</option>
-                <option value="Cobro jurídico">Cobro jurídico</option>
-                <option value="Cartera difícil recaudo">Cartera difícil recaudo</option>
-                <option value="Estudio de crédito">Estudio de crédito</option>
-                <option value="Trámite documental">Trámite documental</option>
-              </datalist>
-            </div>
-          </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="doc-name" class="col-form-label">Buscar:</label>
+                                    <input type="text" class="form-control form-control-sm" id="doc-name">
+                                </div>
 
-          <div class="d-sm-flex justify-content-between mb-3">
-            <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-start mb-3">
-              <label for="start-activity-date" class="col-form-label me-1">Fecha inicio actividad:</label>
-              <div class="col-md-6 ms-lg-1">
-                <input type="date" class="form-control" id="start-activity-date">
-              </div>
-            </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="doc-src" class="col-form-label">en:</label>
+                                    <select class="form-select form-select-sm form-control" id="doc-src" aria-label="select docs-src">
+                                        <option value="1" selected>Todas</option>
+                                        <option value="2">Mis</option>
+                                        <option value="3">Visto recientemente</option>
+                                    </select>
+                                </div>
 
-            <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
-              <label for="end-activity-date" class="col-form-label me-1">Fecha final actividad:</label>
-              <div class="col-md-6 input-container right-icon">
-                <input type="date" class="form-control" id="end-activity-date">
-              </div>
-            </div>
-          </div>
+                                <div class="col mb-3">
+                                    <label for="employee-name" class="col-form-label">Empleado:</label>
+                                    <input type="text" class="form-control form-control-sm" id="employee-name" />
+                                </div>
 
-          <div class="d-md-flex align-items-baseline justify-content-between mb-3">
-            <div class="col-md-6 d-sm-flex mb-3 justify-content-between justify-content-md-start pe-sm-2">
-              <label class="col-auto col-form-label me-2" for="portfolio-price">Valor total cartera:</label>
-              <div class="input-container left-icon">
-                <i class="fas fa-dollar-sign icono"></i>
-                <input type="number" class="form-control ps-4" id="portfolio-price" min="0">
-              </div>
-            </div>
-            <div class="col-md-6 d-sm-flex justify-content-between justify-content-md-end">
-              <label for="overdue-portfolio" class="col-auto col-form-label me-2">Valor cartera vencida:</label>
-              <div class="input-container left-icon">
-                <i class="fas fa-dollar-sign icono"></i>
-                <input type="number" class="form-control ps-4" id="overdue-portfolio" min="0">
-              </div>
-            </div>
-          </div>
+                                <div class="mb-3">
+                                    <label for="modify-date" class="col-form-label">Fecha:</label>
+                                    <div class="row align-items-lg-baseline">
+                                        <div class="col-md-6 col-lg-4">
+                                            <select class="form-select form-select-sm form-control" id="modify-date" aria-label="select modify-date" onchange="setDateRange(this)">
+                                                <option value="custom">Rango</option>
+                                                <option value="all" selected>Todas</option>
+                                                <option value="0">Hoy</option>
+                                                <option value="1">Ayer</option>
+                                                <option value="7">Última semana</option>
+                                                <option value="15">Última quincena</option>
+                                                <option value="30">Último mes</option>
+                                                <option value="90">Último trimestre</option>
+                                                <option value="365">Último año</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-8 d-sm-flex">
+                                            <div class="d-sm-flex align-items-baseline justify-content-evenly w-100">
+                                                <i class="fas fa-chevron-left icons me-xl-2 d-none d-sm-inline-block"></i>
+                                                <span>
+                                                    <label for="start-day" class="d-none"></label>
+                                                    <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
+                                                        id="start-day" disabled />
+                                                </span>
+                                                <i class="fas fa-circle fa-xs icons mx-xl-3 d-none d-sm-inline-block"></i>
+                                                <span>
+                                                    <label for="end-day" class="d-none"></label>
+                                                    <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
+                                                        id="end-day" disabled />
+                                                </span>
+                                                <i class="fas fa-chevron-right icons ms-xl-2 d-none d-sm-inline-block"></i>
+                                            </div>
+                                        </div>
+                                    </div>
 
-          <div class="row mb-3">
-            <label for="payment-date" class="col-auto col-form-label">Fecha pago:</label>
-            <div class="col-auto">
-              <input type="date" class="form-control" id="payment-date">
+                                </div>
+
+                                <div class="btn-toolbar justify-content-evenly justify-content-md-center my-3" role="toolbar" id="docs-options" aria-label="contact-options">
+                                    <div class="btn-group me-2 my-2" role="group" aria-label="search-contact">
+                                        <button class="border-1 btn-ppal me-1 " type="button" name="search-contact" id="search-docs">Buscar</button>
+                                    </div>
+                                    <div class="btn-group me-2 my-2" role="group" aria-label="new-contact">
+                                        <button class="border-1 btn-outline me-1 " type="button" name="new-contact" id="new-docs">Nuevo</button>
+                                    </div>
+                                    <div class="btn-group me-2 my-2" role="group" aria-label="reset-docs-form">
+                                        <button class="border-1 btn-outline me-1 " type="reset" name="reset-contact-form" id="reset-docs-form">Limpiar</button>
+                                    </div>
+                                    <div class="btn-group me-2 my-2" role="group" aria-label="delete-contact">
+                                        <button class="border-1 btn-outline me-1 " type="button" name="delete-contact" id="delete-docs">Eliminar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="row">
-            <h5 class="mt-3">Observaciones:</h5>
-            <div class="col mb-1" id="textarea">
-              <div class="input-container right-icon mt-3">
-                <i class="fas fa-expand-arrows-alt icono icons" id="icon-expand" title="Pantalla completa"
-                   onclick="toggleFullScreen();"></i>
-                <i class="fas fa-signature icono icons mt-4 pe-2" title="Firmar" onclick="writeSignature()"></i>
-                <i class="fas fa-eraser icono icons mt-5" title="Borrar" onclick="clearTextarea()"></i>
-              </div>
-
-              <textarea class="form-control" name="commentary" id="commentary" rows="8"></textarea>
-            </div>
-            <div class="d-flex mb-1">
-              <span class="badge border-1 btn-outline me-1 p-1" id="sign" onclick="writeSignature()">Firmar</span>
-              <span class="badge border-1 btn-outline ms-1 p-1" id="expand">Ampliar</span>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-center justify-content-sm-end my-4">
-            <button class="btn-ppal me-1" type="submit" name="save-request" id="save-request">Guardar</button>
-            <button class="border-1 btn-outline ms-2" type="reset" name="cancel-request" id="cancel-request">Cancelar
-            </button>
-          </div>
-        </form>
-      </div>
-
+        </div>
     </main>
 
     <script src="./main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
 
 </html>

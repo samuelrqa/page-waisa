@@ -173,8 +173,8 @@
                                 <label for="rent-price" class="col-auto col-form-label me-2 me-lg-3 ms-lg-auto">Valor
                                     arriendo</label>
                                 <div class="input-container left-icon">
-                                    <i class="fas fa-dollar-sign icono"></i>
-                                    <input type="number" class="form-control" id="rent-price" min="0"/>
+                                    <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                    <input type="number" class="form-control" id="rent-price" min="0" />
                                 </div>
                             </div>
                         </div>
@@ -193,7 +193,7 @@
                                 <label for="ferrous" class="col-sm-7 col-form-label">Promedio compras mes Kilogramos
                                     Ferrosos</label>
                                 <div class="input-container left-icon">
-                                    <i class="fas fa-dollar-sign icono"></i>
+                                    <i class="fas fa-dollar-sign fa-1x icono"></i>
                                     <input type="number" class="form-control ps-4" id="ferrous" min="0">
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                                 <label for="non-ferrous" class="col-sm-7 col-form-label">Promedio compras mes Kilogramos
                                     No Ferrosos</label>
                                 <div class="input-container left-icon">
-                                    <i class="fas fa-dollar-sign icono"></i>
+                                    <i class="fas fa-dollar-sign fa-1x icono"></i>
                                     <input type="number" class="form-control ps-4" id="non-ferrous" min="0">
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                             <label for="suggested-quota" class="col-sm-auto col-form-label me-2 me-lg-3">Cupo
                                 sugerido</label>
                             <div class="col-sm-7 input-container left-icon">
-                                <i class="fas fa-dollar-sign icono icons"></i>
+                                <i class="fas fa-dollar-sign fa-1x icono icons"></i>
                                 <input type="number" class="form-control" id="suggested-quota">
                             </div>
                         </div>
@@ -254,16 +254,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-
-
-        <div class="m-2" id="footerpag">
-            <button class="btn">
-                Cerrar
-            </button>
-            <button class="btn" id="aceptarModal">
-                Aceptar
-            </button>
         </div>
 
         <!-- Modal Customers -->
@@ -398,7 +388,7 @@
         <!-- Modal Contacts -->
 
         <div class="modal fade p-0" id="modal-contact" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalContact" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -484,7 +474,7 @@
         <!-- Modal Documents -->
 
         <div class="modal fade p-0" id="modal-docs" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalDocuments" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -528,7 +518,7 @@
 
                                 <div class="mb-3">
                                     <label for="modify-date" class="col-form-label">Modificado:</label>
-                                    <div class="row">
+                                    <div class="row align-items-lg-baseline">
                                         <div class="col-md-6 col-lg-4">
                                             <select class="form-select form-select-sm form-control" id="modify-date" aria-label="select modify-date" onchange="setDateRange(this)">
                                                 <option value="custom">Rango</option>
@@ -543,20 +533,20 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-8 d-sm-flex">
-                                            <div class="d-sm-flex align-items-baseline justify-content-evenly justify-content-xl-end w-100">
-                                                <i class="fas fa-chevron-left icons me-xl-4 d-none d-sm-inline-block"></i>
+                                            <div class="d-sm-flex align-items-baseline justify-content-evenly w-100">
+                                                <i class="fas fa-chevron-left icons me-xl-2 d-none d-sm-inline-block"></i>
                                                 <span>
                                                     <label for="start-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="start-day" disabled />
                                                 </span>
-                                                <i class="fas fa-circle fa-xs icons mx-xl-4 d-none d-sm-inline-block"></i>
+                                                <i class="fas fa-circle fa-xs icons mx-xl-3 d-none d-sm-inline-block"></i>
                                                 <span>
                                                     <label for="end-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="end-day" disabled />
                                                 </span>
-                                                <i class="fas fa-chevron-right icons m-xl-3 ms-xl-4 d-none d-sm-inline-block"></i>
+                                                <i class="fas fa-chevron-right icons ms-xl-2 d-none d-sm-inline-block"></i>
                                             </div>
                                         </div>
                                     </div>

@@ -10,6 +10,7 @@
 }
 
 a {
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -82,7 +83,15 @@ figure {
 
 .left-icon .icono {
     left: 0px;
+    background-color: transparent;
     color: var(--primary-color);
+    cursor: auto;
+    border-top: 0;
+    border-right: 1px solid #ced4da;
+    border-bottom: 0;
+    border-left: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .left-icon input {
@@ -91,7 +100,7 @@ figure {
 
 .right-icon .icono {
     right: 0px;
-    cursor: pointer;
+    background-color: transparent;
 }
 
 .right-icon input {

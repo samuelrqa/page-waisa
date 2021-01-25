@@ -112,7 +112,6 @@ function setRentPrice(chk) {
 }
 
 function writeSignature() {
-    console.log(document.getElementById("rent-price").value)
     let commentary = document.getElementById("commentary");
     let commentaryText = [];
     commentaryText = commentary.value;
@@ -176,7 +175,7 @@ function setDateRange(select) {
     }
 }
 
-function toggleFullScreen(){
+function toggleFullScreen() {
     let textarea = document.getElementById('commentary');
     commentary.fullscreenElement();
 }
