@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seguimiento C X C</title>
+    <title>Estudio de crédito</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="stylesheet" href="./styles.css" />
@@ -34,13 +34,13 @@
         </div>
         <nav class="navbar p-2" id="nav-request">
             <div>
-                <h4 class="m-0 text-light p-2">Seguimiento CxC (704)</h4>
+                <h4 class="m-0 text-light p-2">Estudio crédito clientes</h4>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Seguimiento -->
+        <!-- Estudio crédito -->
         <div class="container-fluid">
             <div class="row">
                 <div class="d-flex justify-content-evenly justify-content-sm-start m-2">
@@ -56,8 +56,8 @@
                         <table class="table table-responsive table-bordered" id="loan-state">
                             <thead>
                                 <th scope="col">Creada</th>
-                                <th scope="col">Realizar</th>
-                                <th scope="col">Procesar</th>
+                                <th scope="col">Cómite crédito</th>
+                                <th scope="col">Cerrar estudio</th>
                             </thead>
                             <tbody class="text-center">
                                 <td scope="col">
@@ -66,7 +66,8 @@
                                     <span>Fecha y hora</span>
                                 </td>
                                 <td>
-                                    <span>Empleado</span>
+                                    <span>Rol: Comité de Crédito</span>
+                                    <span>Nivel: División(Cliente)</span>
                                 </td>
                                 <td>
                                     <span>Usuario</span>
@@ -82,38 +83,7 @@
 
         <div class="container">
             <div class="px-4 px-sm-0">
-                <h4 class="my-5 mt-md-4 text-center">PROGRAMACIÓN</h4>
                 <form class="px-lg-5 mt-4">
-                    <div class="d-sm-flex justify-content-between">
-                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-start mb-3">
-                            <label for="check-type" class="col-form-label me-1">Tipo de seguimiento:</label>
-                            <div class="col-md-6 ms-lg-1">
-                                <select class="form-control form-select" id="check-type" aria-label="select check-type">
-                                    <option value="Llamada saliente" selected>
-                                        Llamada saliente
-                                    </option>
-                                    <option value="Visita">Visita</option>
-                                    <option value="Mail">Mail</option>
-                                    <option value="Comunicación escrita">
-                                        Comunicación escrita
-                                    </option>
-                                    <option value="Gestión del cliente">
-                                        Gestión del cliente
-                                    </option>
-                                    <option value="No gestionada">No gestionada</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
-                            <label for="activity-origin" class="col-form-label me-1">Origen de la actividad:</label>
-                            <div class="col-md-6 input-container right-icon">
-                                <i class="fas fa-search icono icons" data-bs-toggle="modal" data-bs-target="#modal-activity-origin"></i>
-                                <input type="text" class="form-control" id="activity-origin" />
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row mb-3 align-items-center">
                         <label for="employee" class="col-sm-2 col-form-label">Empleado:</label>
                         <div class="col-sm-10 ps-lg-4 ps-md-5 ps-xl-0" style="text-align: justify">
@@ -124,104 +94,153 @@
                         </div>
                     </div>
 
-                    <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
-                        <div class="col-sm-3 d-sm-inline-flex mb-3">
-                            <label class="form-check-label me-2 user-select-none" for="correria">Correria</label>
-                            <input class="form-check-input" type="checkbox" name="correria" id="correria" />
+                    <div class="d-md-flex align-items-baseline justify-content-between mb-3">
+                        <div class="col-md-auto d-md-inline-flex d-sm-flex me-md-2 mb-3">
+                            <label class="col-3 col-md-auto col-form-label me-2" for="description">Descripción:</label>
+                            <div class="col-sm-4 col-md-auto">
+                                <input class="form-control" type="text" name="description" id="description" />
+                            </div>
                         </div>
-                        <div class="col-sm-9 d-sm-flex justify-content-between">
-                            <label for="customer" class="col-auto col-form-label me-2">Cliente:</label>
+                        <div class="col d-md-inline-flex d-sm-flex mb-3">
+                            <label class="col-3 col-md-auto col-form-label me-2" for="customer">Cliente:</label>
                             <div class="col">
-                                <input type="text" class="form-control" id="customer" onkeyup="console.log('Buscardo...' + this.value)" ; />
+                                <input class="form-control" type="text" name="customer" id="customer" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="d-sm-flex align-items-baseline justify-content-between mb-3">
-                        <div class="col-sm-6 col-md-5 d-sm-inline-flex mb-3 pe-sm-2">
-                            <label class="col-auto col-form-label me-2" for="subject">Asunto:</label>
-                            <input type="text" class="form-control" id="subject" list="subject-list" autocomplete="off" />
-                            <datalist id="subject-list">
-                                <option value="Labor de cobro">Labor de cobro</option>
-                                <option value="Seguimiento al cliente">
-                                    Seguimiento al cliente
-                                </option>
-                                <option value="Seguimiento abogado">
-                                    Seguimiento abogado
-                                </option>
-                                <option value="Cruce de cuentas">Cruce de cuentas</option>
-                            </datalist>
-                        </div>
-
-                        <div class="col-sm-6 col-md-5 d-sm-flex justify-content-between mb-3">
-                            <label for="reason" class="col-auto col-form-label me-2">Razón:</label>
-                            <input type="text" class="form-control" id="reason" list="reason-list" autocomplete="off" />
-                            <datalist id="reason-list">
-                                <option value="Cartera vencida">Cartera vencida</option>
-                                <option value="Cheque posfechado">Cheque posfechado</option>
-                                <option value="Ventas de contado pendientes">
-                                    Ventas de contado pendientes
-                                </option>
-                                <option value="Cheque devuelto">Cheque devuelto</option>
-                                <option value="Cobro preventivo">Cobro preventivo</option>
-                                <option value="Oferta descuento pronto pago">
-                                    Oferta descuento pronto pago
-                                </option>
-                                <option value="Conciliación cartera">
-                                    Conciliación cartera
-                                </option>
-                                <option value="Incumplimiento compromiso">
-                                    Incumplimiento compromiso
-                                </option>
-                                <option value="Cobro jurídico">Cobro jurídico</option>
-                                <option value="Cartera difícil recaudo">
-                                    Cartera difícil recaudo
-                                </option>
-                                <option value="Estudio de crédito">Estudio de crédito</option>
-                                <option value="Trámite documental">Trámite documental</option>
-                            </datalist>
+                    <div class="d-md-flex align-items-center mb-3">
+                        <label for="associate-request" class="col-auto col-form-label me-1 mb-md-3">Solicitud de crédito
+                            asociado:</label>
+                        <div class="col input-container right-icon mb-md-3">
+                            <i class="fas fa-search icono icons pe-4" data-bs-toggle="modal" data-bs-target="#modal-associate-request"></i>
+                            <input type="text" class="form-control" id="associate-request" />
                         </div>
                     </div>
 
-                    <div class="d-sm-flex justify-content-between mb-3">
-                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-between mb-3">
-                            <label for="start-activity-date" class="col-form-label me-1">Fecha inicio actividad:</label>
-                            <div class="col-md-6 ms-lg-1">
-                                <input type="date" class="form-control" id="start-activity-date" />
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-start mb-3">
+                            <label for="start-study-date" class="col-form-label me-1">Fecha inicio:</label>
+                            <div class="col-md-8 col-xl-6">
+                                <input type="date" class="form-control" id="start-study-date" />
                             </div>
                         </div>
 
                         <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
-                            <label for="end-activity-date" class="col-form-label me-1">Fecha final actividad:</label>
-                            <div class="col-md-6 input-container right-icon">
-                                <input type="date" class="form-control" id="end-activity-date" />
+                            <label for="end-study-date" class="col-form-label me-1">Fecha final:</label>
+                            <div class="col-md-8 col-xl-6">
+                                <input type="date" class="form-control" id="end-study-date" />
                             </div>
                         </div>
                     </div>
 
+                    <h5 class="my-3">PERFIL DEL CLIENTE:</h5>
                     <div class="d-md-flex align-items-baseline justify-content-between mb-3">
-                        <div class="col-md-6 d-sm-flex mb-3 justify-content-between">
-                            <label class="col-auto col-form-label me-2" for="portfolio-price">Valor total
-                                cartera:</label>
-                            <div class="col-md-6 input-container left-icon">
-                                <i class="fas fa-dollar-sign fa-1x icono"></i>
-                                <input type="number" class="form-control ps-4" id="portfolio-price" min="0" />
+                        <div class="col-md-auto d-md-inline-flex d-sm-flex me-md-2 mb-3">
+                            <label class="col-4 col-md-auto col-form-label me-2" for="company-type">Tipo de
+                                empresa:</label>
+                            <div class="col-sm-4 col-md-auto">
+                                <input class="form-control" type="text" name="company-type" id="company-type" list="company-type-list" />
+                                <datalist id="company-type-list">
+                                    <option value="Pública">Pública</option>
+                                    <option value="Privada">Privada</option>
+                                    <option value="Mixta">Mixta</option>
+                                    <option value="Otra">Otra</option>
+                                </datalist>
                             </div>
                         </div>
-                        <div class="col-md-6 d-sm-flex justify-content-between justify-content-md-end">
-                            <label for="overdue-portfolio" class="col-auto col-form-label me-2">Valor cartera
-                                vencida:</label>
-                            <div class="col-md-6 input-container left-icon">
-                                <i class="fas fa-dollar-sign fa-1x icono"></i>
-                                <input type="number" class="form-control ps-4" id="overdue-portfolio" min="0" />
+                        <div class="col d-md-inline-flex d-sm-flex mb-3">
+                            <label class="col-4 col-md-auto col-form-label me-2" for="partnership">Tipo de
+                                sociedad:</label>
+                            <div class="col">
+                                <input class="form-control" type="text" name="partnership" id="partnership" list="partnership-list" />
+                                <datalist id="partnership-list">
+                                    <option value="S.A.">S.A.</option>
+                                    <option value="LTDA.">LTDA.</option>
+                                    <option value="S.A.S.">S.A.S.</option>
+                                    <option value="S.C.A.">S.C.A.</option>
+                                    <option value="ESTABLECIMIENTO DE COMERCIO">ESTABLECIMIENTO DE COMERCIO</option>
+                                    <option value="PERSONA NATURAL">PERSONA NATURAL</option>
+                                </datalist>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <label for="payment-date" class="col-auto col-form-label">Fecha pago:</label>
-                        <div class="col-auto">
-                            <input type="date" class="form-control" id="payment-date" />
+                    <div class="col d-flex mb-3">
+                        <div>
+                            <input class="form-check-input me-2" type="checkbox" name="insolvency-agreement" id="insolvency-agreement" />
+                        </div>
+                        <label class="form-check-label user-select-none" for="insolvency-agreement">Actualmente está en
+                            un acuerdo legal de insolvencia</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-start mb-3">
+                            <label for="age-partnership" class="col-form-label me-1">Antigüedad de la
+                                sociedad:</label>
+                            <div class="col-md-4 col-xl-6">
+                                <input type="text" class="form-control" id="age-partnership" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="age-ai" class="col-form-label me-1 text-nowrap">Antigüedad con
+                                Aceros Industriales:</label>
+                            <div class="col-md-4 col-xl-6">
+                                <input type="text" class="form-control" id="age-ai" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-start mb-3">
+                            <label for="current-warranty" class="col-form-label me-1">Garantía actual:</label>
+                            <div class="col col-xl-6">
+                                <input type="text" class="form-control" id="current-warranty" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="current-loan-quota" class="col-form-label me-1 text-nowrap">Cupo crédito
+                                actual:</label>
+                            <div class="col col-xl-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control" id="current-loan-quota" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <h5 class="my-3">ANÁLISIS ESTADOS FINANCIEROS:</h5>
+                    <div class="d-sm-flex align-items-center justify-content-sm-between mb-3">
+                        <label for="associate-request" class="col-auto col-form-label me-1 mb-md-3">Utilidad de los dos
+                            últimos ejercicios:</label>
+                        <div class="col-xl-3 input-container left-icon mb-md-3">
+                            <i class="fas fa-dollar-sign fa-1x icono"></i>
+                            <input type="text" class="form-control" id="associate-request" />
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-start mb-3">
+                            <label for="sales" class="col-form-label me-1">Ventas:</label>
+                            <div class="col-md-8 col-xl-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control" id="sales" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="total-assets" class="col-form-label me-1">Total activos:</label>
+                            <div class="col-md-8 col-xl-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control" id="total-assets" />
+                            </div>
                         </div>
                     </div>
 
@@ -256,12 +275,12 @@
 
         <!-- Modal origen actividad -->
 
-        <div class="modal fade p-0" id="modal-activity-origin" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalActivityOrigin" aria-hidden="true">
+        <div class="modal fade p-0" id="modal-associate-request" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalActivityOrigin" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="modal-activity-origin-title">Origen actividad</h3>
+                            <h3 class="modal-title" id="modal-associate-request-title">Solicitudes asociadas</h3>
                             <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="fas fa-times fa-lg icons"></i>
                             </button>
