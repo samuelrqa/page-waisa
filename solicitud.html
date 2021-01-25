@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -174,7 +174,7 @@
                                     arriendo</label>
                                 <div class="input-container left-icon">
                                     <i class="fas fa-dollar-sign icono"></i>
-                                    <input type="number" class="form-control" id="rent-price" disabled>
+                                    <input type="number" class="form-control" id="rent-price" min="0"/>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 trabajadores
                             </label>
                             <div class="col-3 col-sm-3 col-lg-2 p-0">
-                                <input type="number" class="form-control" id="numb-workers">
+                                <input type="number" class="form-control" id="numb-workers" min="1">
                             </div>
                         </div>
 
@@ -194,7 +194,7 @@
                                     Ferrosos</label>
                                 <div class="input-container left-icon">
                                     <i class="fas fa-dollar-sign icono"></i>
-                                    <input type="number" class="form-control ps-4" id="ferrous">
+                                    <input type="number" class="form-control ps-4" id="ferrous" min="0">
                                 </div>
                             </div>
                             <div class="align-items-baseline align-items-lg-end col-lg-6 d-sm-inline-flex justify-content-between mb-3 pe-0">
@@ -202,7 +202,7 @@
                                     No Ferrosos</label>
                                 <div class="input-container left-icon">
                                     <i class="fas fa-dollar-sign icono"></i>
-                                    <input type="number" class="form-control ps-4" id="non-ferrous">
+                                    <input type="number" class="form-control ps-4" id="non-ferrous" min="0">
                                 </div>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                         </ol>
                         <div class="col mb-1" id="textarea">
                             <div class="input-container right-icon mt-3">
-                                <i class="fas fa-expand-arrows-alt icono icons" id="icon-expand" title="Pantalla completa"></i>
+                                <i class="fas fa-expand-arrows-alt icono icons" id="icon-expand" title="Pantalla completa" onclick="toggleFullScreen();"></i>
                                 <i class="fas fa-signature icono icons mt-4 pe-2" title="Firmar" onclick="writeSignature()"></i>
                                 <i class="fas fa-eraser icono icons mt-5" title="Borrar" onclick="clearTextarea()"></i>
                             </div>
@@ -226,8 +226,8 @@
                             <textarea class="form-control" name="commentary" id="commentary" rows="8"></textarea>
                         </div>
                         <div class="d-flex mb-1">
-                            <span class="badge border-1 btn-outline me-1 p-1" name="sign" id="sign" onclick="writeSignature()">Firmar</span>
-                            <span class="badge border-1 btn-outline ms-1 p-1" name="expand" id="expand">Ampliar</span>
+                            <span class="badge border-1 btn-outline me-1 p-1" id="sign" onclick="writeSignature()">Firmar</span>
+                            <span class="badge border-1 btn-outline ms-1 p-1" id="expand">Ampliar</span>
                         </div>
                     </div>
 
@@ -488,7 +488,7 @@
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="modal-contact-title">Documentos</h3>
+                            <h3 class="modal-title" id="modal-docs-title">Documentos</h3>
                             <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="fas fa-times fa-lg icons"></i>
                             </button>
@@ -546,11 +546,13 @@
                                             <div class="d-sm-flex align-items-baseline justify-content-evenly justify-content-xl-end w-100">
                                                 <i class="fas fa-chevron-left icons me-xl-4 d-none d-sm-inline-block"></i>
                                                 <span>
+                                                    <label for="start-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="start-day" disabled />
                                                 </span>
                                                 <i class="fas fa-circle fa-xs icons mx-xl-4 d-none d-sm-inline-block"></i>
                                                 <span>
+                                                    <label for="end-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="end-day" disabled />
                                                 </span>
@@ -592,18 +594,18 @@
                                     </select>
                                 </div>
 
-                                <div class="btn-toolbar justify-content-evenly justify-content-md-center my-3" role="toolbar" id="contact-options" aria-label="contact-options">
+                                <div class="btn-toolbar justify-content-evenly justify-content-md-center my-3" role="toolbar" id="docs-options" aria-label="contact-options">
                                     <div class="btn-group me-2 my-2" role="group" aria-label="search-contact">
-                                        <button class="border-1 btn-ppal me-1 " type="button" name="search-contact" id="search-contact">Buscar</button>
+                                        <button class="border-1 btn-ppal me-1 " type="button" name="search-contact" id="search-docs">Buscar</button>
                                     </div>
                                     <div class="btn-group me-2 my-2" role="group" aria-label="new-contact">
-                                        <button class="border-1 btn-outline me-1 " type="button" name="new-contact" id="new-contact">Nuevo</button>
+                                        <button class="border-1 btn-outline me-1 " type="button" name="new-contact" id="new-docs">Nuevo</button>
                                     </div>
-                                    <div class="btn-group me-2 my-2" role="group" aria-label="reset-contact-form">
-                                        <button class="border-1 btn-outline me-1 " type="reset" name="reset-contact-form" id="reset-contact-form">Limpiar</button>
+                                    <div class="btn-group me-2 my-2" role="group" aria-label="reset-docs-form">
+                                        <button class="border-1 btn-outline me-1 " type="reset" name="reset-contact-form" id="reset-docs-form">Limpiar</button>
                                     </div>
                                     <div class="btn-group me-2 my-2" role="group" aria-label="delete-contact">
-                                        <button class="border-1 btn-outline me-1 " type="button" name="delete-contact" id="delete-contact">Eliminar</button>
+                                        <button class="border-1 btn-outline me-1 " type="button" name="delete-contact" id="delete-docs">Eliminar</button>
                                     </div>
                                 </div>
 

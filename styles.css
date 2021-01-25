@@ -68,7 +68,7 @@ figure {
 
 .input-container {
     position: relative;
-    margin-bottom: 1em;
+    /*margin-bottom: 1em;*/
 }
 
 .input-container .icono {

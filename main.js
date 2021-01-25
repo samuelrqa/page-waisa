@@ -101,14 +101,18 @@ function prueba() {
 function setRentPrice(chk) {
     let rentPrice = document.getElementById("rent-price");
     if (chk.checked) {
-        rentPrice.removeAttribute("disabled");
-        rentPrice.focus();
-    } else {
         rentPrice.setAttribute("disabled", true);
+        rentPrice.value = '0';
+        rentPrice.blur();
+    } else {
+        rentPrice.removeAttribute("disabled");
+        rentPrice.value = '';
+        rentPrice.focus();
     }
 }
 
 function writeSignature() {
+    console.log(document.getElementById("rent-price").value)
     let commentary = document.getElementById("commentary");
     let commentaryText = [];
     commentaryText = commentary.value;
@@ -170,6 +174,11 @@ function setDateRange(select) {
         default:
             break;
     }
+}
+
+function toggleFullScreen(){
+    let textarea = document.getElementById('commentary');
+    commentary.fullscreenElement();
 }
 
 function formatDate(date, format) {
