@@ -1,14 +1,6 @@
 const divBody = document.getElementById("body");
 let date = new Date();
 
-// for (let i = 0; i < today.length - 1; i++) {
-//     if (today[i].length < 2) {
-//         today[i] = 0 + today[i];
-//     }
-// }
-
-// today = today.join("-");
-
 window.addEventListener("load", () => {
     let forms = document.getElementsByTagName("form");
     for (const form of forms) {
@@ -102,11 +94,11 @@ function setRentPrice(chk) {
     let rentPrice = document.getElementById("rent-price");
     if (chk.checked) {
         rentPrice.setAttribute("disabled", true);
-        rentPrice.value = '0';
+        rentPrice.value = "0";
         rentPrice.blur();
     } else {
         rentPrice.removeAttribute("disabled");
-        rentPrice.value = '';
+        rentPrice.value = "";
         rentPrice.focus();
     }
 }
@@ -140,12 +132,11 @@ function setDateRange(select) {
     let selectedRange = dateRange.options[dateRange.selectedIndex].value;
     let startDay = document.getElementById("start-day");
     let endDay = document.getElementById("end-day");
+    endDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
 
     if (selectedRange == "custom") {
         startDay.removeAttribute("disabled");
         endDay.removeAttribute("disabled");
-        endDay.setAttribute("value", formatDate(date, 'yyyy-mm-dd'));
-        startDay.focus();
     } else {
         startDay.setAttribute("disabled", true);
         endDay.setAttribute("disabled", true);
@@ -153,22 +144,32 @@ function setDateRange(select) {
 
     switch (selectedRange) {
         case "custom":
+            startDay.setAttribute("value", "");
+            startDay.focus();
             break;
         case "all":
+            startDay.setAttribute("value", new Date(2000, 1, 20));
             break;
         case "0":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "1":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "7":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "15":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "30":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "90":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         case "365":
+            startDay.setAttribute("value", formatDate(date, "yyyy-mm-dd"));
             break;
         default:
             break;
@@ -176,18 +177,18 @@ function setDateRange(select) {
 }
 
 function toggleFullScreen() {
-    let textarea = document.getElementById('commentary');
+    let textarea = document.getElementById("commentary");
     commentary.fullscreenElement();
 }
 
 function formatDate(date, format) {
     var mes = date.getMonth() + 1;
-    if (mes < 10) mes = '0' + mes
+    if (mes < 10) mes = "0" + mes;
 
     const r = {
         mm: mes,
         dd: date.getDate(),
         yyyy: date.getFullYear(),
-    }
-    return format.replace(/mm|dd|yyyy/gi, matched => r[matched])
+    };
+    return format.replace(/mm|dd|yyyy/gi, (matched) => r[matched]);
 }

@@ -389,8 +389,8 @@
 
         <!-- Modal Contacts -->
 
-        <div class="modal fade p-0" id="modal-contact" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalContact" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal fade p-0" id="modal-contact" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalContact" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -423,7 +423,7 @@
                                     <input type="text" class="form-control form-control-sm" id="lastname">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="full-name" class="col-form-label">Nombre completo:</label>
+                                    <label for="full-name" class="col-form-label">Nombres:</label>
                                     <input type="text" class="form-control form-control-sm" id="full-name">
                                 </div>
 
@@ -465,8 +465,17 @@
                                         <button class="border-1 btn-outline me-1" type="button" name="delete-contact" id="delete-contact">Eliminar</button>
                                     </div>
                                 </div>
-
                             </form>
+
+                            <div class="contacts-list">
+                                <table class="table table-bordered table-hover table-sm" id="contacts-table" style="
+                                font-size: .9rem;">
+                                    <thead class="bg-light text-center">
+                                        <tr></tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -476,7 +485,7 @@
         <!-- Modal Documents -->
 
         <div class="modal fade p-0" id="modal-docs" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalDocuments" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="container-lg px-lg-5">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -535,20 +544,20 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-8 d-sm-flex">
-                                            <div class="d-sm-flex align-items-baseline justify-content-evenly w-100">
-                                                <i class="fas fa-chevron-left icons me-xl-2 d-none d-sm-inline-block"></i>
+                                            <div class="d-sm-flex align-items-baseline justify-content-evenly justify-content-sm-end w-100">
+                                                <i class="fas fa-chevron-left icons me-xl-4 d-none d-sm-inline-block"></i>
                                                 <span>
                                                     <label for="start-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="start-day" disabled />
                                                 </span>
-                                                <i class="fas fa-circle fa-xs icons mx-xl-3 d-none d-sm-inline-block"></i>
+                                                <i class="fas fa-circle fa-xs icons mx-xl-4 d-none d-sm-inline-block"></i>
                                                 <span>
                                                     <label for="end-day" class="d-none"></label>
                                                     <input type="date" class="form-control form-control-sm mt-2 m-lg-0"
                                                         id="end-day" disabled />
                                                 </span>
-                                                <i class="fas fa-chevron-right icons ms-xl-2 d-none d-sm-inline-block"></i>
+                                                <i class="fas fa-chevron-right icons me-xl-3 ms-xl-4 d-none d-sm-inline-block"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -602,6 +611,16 @@
                                 </div>
 
                             </form>
+
+                            <div class="documents-list">
+                                <table class="table table-bordered table-hover table-sm" id="contacts-table" style="
+                                font-size: .9rem;">
+                                    <thead class="bg-light text-center">
+                                        <tr></tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

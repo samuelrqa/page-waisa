@@ -26,7 +26,7 @@
                     </div>
                     <figure class="bg-white rounded-start" id="logo-collapsed">
                         <img src="https://drive.google.com/uc?export=view&id=1UBjwwfVYliVPYfa5Q1YaSpyyID8ZHTUc" class="rounded-top shadow" style="max-width: 250px" alt="aceros-header" />
-                        <figcaption class="fw-bold pe-sm-2 rounded-bottom shadow text-center text-sm-end" id="user-name">
+                        <figcaption class="pe-sm-2 rounded-bottom shadow text-center text-sm-end" id="user-name">
                         </figcaption>
                     </figure>
                 </nav>
@@ -113,7 +113,7 @@
                         <label for="associate-request" class="col-auto col-form-label me-1 mb-md-3">Solicitud de crédito
                             asociado:</label>
                         <div class="col input-container right-icon mb-md-3">
-                            <i class="fas fa-search icono icons pe-4" data-bs-toggle="modal" data-bs-target="#modal-associate-request"></i>
+                            <i class="fas fa-search icono icons" data-bs-toggle="modal" data-bs-target="#modal-associate-request"></i>
                             <input type="text" class="form-control" id="associate-request" />
                         </div>
                     </div>
@@ -135,6 +135,7 @@
                     </div>
 
                     <h5 class="my-3">PERFIL DEL CLIENTE:</h5>
+
                     <div class="d-md-flex align-items-baseline justify-content-between mb-3">
                         <div class="col-md-auto d-md-inline-flex d-sm-flex me-md-2 mb-3">
                             <label class="col-4 col-md-auto col-form-label me-2" for="company-type">Tipo de
@@ -179,7 +180,7 @@
                             <label for="age-partnership" class="col-form-label me-1">Antigüedad de la
                                 sociedad:</label>
                             <div class="col-md-4 col-xl-6">
-                                <input type="text" class="form-control" id="age-partnership" />
+                                <input type="text" class="form-control text-center" id="age-partnership" />
                             </div>
                         </div>
 
@@ -187,42 +188,186 @@
                             <label for="age-ai" class="col-form-label me-1 text-nowrap">Antigüedad con
                                 Aceros Industriales:</label>
                             <div class="col-md-4 col-xl-6">
-                                <input type="text" class="form-control" id="age-ai" />
+                                <input type="text" class="form-control text-center" id="age-ai" />
                             </div>
                         </div>
                     </div>
 
                     <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
                         <div class="col-md-6 d-md-inline-flex align-items-center justify-content-start mb-3">
-                            <label for="current-warranty" class="col-form-label me-1">Garantía actual:</label>
+                            <label for="current-guarantee" class="col-form-label me-1">Garantía actual:</label>
                             <div class="col col-xl-6">
-                                <input type="text" class="form-control" id="current-warranty" />
+                                <input type="text" class="form-control" id="current-guarantee" />
                             </div>
                         </div>
 
                         <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
-                            <label for="current-loan-quota" class="col-form-label me-1 text-nowrap">Cupo crédito
+                            <label for="current-loan-quota" class="col-form-label me-1">Cupo crédito
                                 actual:</label>
                             <div class="col col-xl-6 input-container left-icon">
                                 <i class="fas fa-dollar-sign fa-1x icono"></i>
-                                <input type="number" class="form-control" id="current-loan-quota" />
+                                <input type="number" class="form-control" id="current-loan-quota" step=".1" />
                             </div>
                         </div>
                     </div>
 
+                    <div class="d-md-flex align-items-center mb-3">
+                        <label for="info-source" class="col-auto col-form-label me-1 mb-md-3">Fuente de la información
+                            financiera:</label>
+                        <div class="col mb-md-3">
+                            <input type="text" class="form-control" id="info-source" />
+                        </div>
+                    </div>
 
+                    <h5 class="my-3">ANÁLISIS INTERNO HISTÓRICO:</h5>
 
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="current-year" class="col-form-label me-1">Compras año
+                                actual:</label>
+                            <div class="col col-xl-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control" id="current-year" step=".1" />
+                            </div>
+                        </div>
 
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="last-year" class="col-form-label me-1">Compras año
+                                anterior:</label>
+                            <div class="col col-xl-6 input-container left-icon">
+                                <i class="fas fa-dollar-sign fa-1x icono"></i>
+                                <input type="number" class="form-control" id="last-year" step=".1" />
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="d-sm-flex align-items-center justify-content-between justify-content-lg-start mb-3">
+                        <label for="avg-payments" class="col-auto col-form-label me-1 me-lg-2">Promedio de pagos Año
+                            actual/Año anterior:</label>
+                        <div class="col-sm-3 col-lg-2 input-container ms-lg-1 right-icon">
+                            <i class="icono icons p-2 pe-none">Días</i>
+                            <input type="number" class="form-control" id="avg-payments" step=".1" />
+                        </div>
+                    </div>
 
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-sm-6 d-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="profitability" class="col-form-label me-1">Rentabilidad Año actual/Año
+                                anterior:</label>
+                            <div class="col-3 col-sm-4 col-lg-3 input-container right-icon">
+                                <i class="fas fa-percent fa-sm icono icons pe-none"></i>
+                                <input type="number" class="form-control pe-3" id="profitability" step=".01" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 d-inline-flex align-items-center justify-content-sm-end justify-content-between mb-3">
+                            <label for="returned-checks" class="col-form-label me-1">Cheques devueltos Año actual/Año
+                                anterior:</label>
+                            <div class="col-3 col-sm-4 col-lg-3">
+                                <input type="number" class="form-control text-center" id="returned-checks" />
+                            </div>
+                        </div>
+                    </div>
 
                     <h5 class="my-3">ANÁLISIS ESTADOS FINANCIEROS:</h5>
-                    <div class="d-sm-flex align-items-center justify-content-sm-between mb-3">
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="financial-docs" class="col-form-label me-1">Documentos financieros:</label>
+                            <div class="col col-xl-6 input-container right-icon">
+                                <i class="fas fa-search fa-1x icono icons" onclick="alert('Buscar documentos asociados...')"></i>
+                                <input type="text" class="form-control" id="financial-docs" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-inline-flex align-items-center justify-content-md-end mb-3">
+                            <label for="financial-indicators" class="col-form-label me-1">Matriz indicadores
+                                financieros:</label>
+                            <div class="col col-xl-6 input-container right-icon">
+                                <i class="fas fa-search fa-1x icono icons" onclick="alert('Buscar indicadores financieros...')"></i>
+                                <input type="text" class="form-control" id="financial-indicators" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="liquidity-ratio" class="col-form-label me-1">Índice de liquidez:</label>
+                            <div class="col-5 col-md-4">
+                                <input type="number" class="form-control text-center" id="liquidity-ratio" step=".1" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between justify-content-md-end mb-3">
+                            <label for="quick-ratio" class="col-form-label me-1">Prueba ácida:</label>
+                            <div class="col-5 col-md-4">
+                                <input type="number" class="form-control text-center" id="quick-ratio" step=".1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="financial-docs" class="col-form-label me-1">Índice de endeudamiento:</label>
+                            <div class="col-5 col-md-4">
+                                <input type="number" class="form-control text-center" id="financial-docs" step=".1" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between justify-content-md-end mb-3">
+                            <label for="inventory-turn" class="col-form-label me-1">Rotación de inventarios:</label>
+                            <div class="col-5 col-md-4 input-container right-icon">
+                                <i class="icono icons p-2 pe-none">Días</i>
+                                <input type="number" class="form-control" id="inventory-turn" step=".1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="portfolio-turn" class="col-form-label me-1">Rotación de cartera:</label>
+                            <div class="col-5 col-md-4 input-container right-icon">
+                                <i class="icono icons p-2 pe-none">Días</i>
+                                <input type="number" class="form-control" id="portfolio-turn" step=".1" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between justify-content-md-end mb-3">
+                            <label for="accounts-payable-turn" class="col-form-label me-1">Rotación Ctas x
+                                pagar:</label>
+                            <div class="col-5 col-md-4 input-container right-icon">
+                                <i class="icono icons p-2 pe-none">Días</i>
+                                <input type="number" class="form-control" id="accounts-payable-turn" step=".1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-sm-2 d-sm-flex justify-content-between mb-3">
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between mb-3">
+                            <label for="portfolio-turn" class="col-form-label me-1">Rentabilidad sobre el
+                                patrimonio:</label>
+                            <div class="col-5 col-md-4 input-container right-icon">
+                                <i class="fas fa-percent fa-sm icono icons pe-none"></i>
+                                <input type="number" class="form-control pe-3" id="portfolio-turn" step=".01" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-inline-flex align-items-center justify-content-between justify-content-md-end mb-3">
+                            <label for="accounts-payable-turn" class="col-form-label me-1">Rentabilidad sobre
+                                ventas:</label>
+                            <div class="col-5 col-md-4 input-container right-icon">
+                                <i class="fas fa-percent fa-sm icono icons pe-none"></i>
+                                <input type="number" class="form-control pe-3" id="accounts-payable-turn" step=".01" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-sm-flex align-items-center justify-content-between justify-content-md-start mb-3">
                         <label for="associate-request" class="col-auto col-form-label me-1 mb-md-3">Utilidad de los dos
                             últimos ejercicios:</label>
                         <div class="col-xl-3 input-container left-icon mb-md-3">
                             <i class="fas fa-dollar-sign fa-1x icono"></i>
-                            <input type="text" class="form-control" id="associate-request" />
+                            <input type="number" class="form-control" id="associate-request" step=".1" />
                         </div>
                     </div>
 
@@ -231,7 +376,7 @@
                             <label for="sales" class="col-form-label me-1">Ventas:</label>
                             <div class="col-md-8 col-xl-6 input-container left-icon">
                                 <i class="fas fa-dollar-sign fa-1x icono"></i>
-                                <input type="number" class="form-control" id="sales" />
+                                <input type="number" class="form-control" id="sales" step=".1" />
                             </div>
                         </div>
 
@@ -239,7 +384,7 @@
                             <label for="total-assets" class="col-form-label me-1">Total activos:</label>
                             <div class="col-md-8 col-xl-6 input-container left-icon">
                                 <i class="fas fa-dollar-sign fa-1x icono"></i>
-                                <input type="number" class="form-control" id="total-assets" />
+                                <input type="number" class="form-control" id="total-assets" step=".1" />
                             </div>
                         </div>
                     </div>
@@ -273,7 +418,7 @@
             </div>
         </div>
 
-        <!-- Modal origen actividad -->
+        <!-- Modal solicitud de crédito asociado -->
 
         <div class="modal fade p-0" id="modal-associate-request" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true" aria-labelledby="modalActivityOrigin" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -376,6 +521,16 @@
                                 </div>
 
                             </form>
+
+                            <div class="associate-request-list">
+                                <table class="table table-bordered table-hover table-sm" id="contacts-table" style="
+                                font-size: .9rem;">
+                                    <thead class="bg-light text-center">
+                                        <tr></tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

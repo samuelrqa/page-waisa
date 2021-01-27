@@ -373,3 +373,7 @@ textarea {
     background: #002c6f;
     color: #ffffff;
 }
+
+.modal .table td:last-child {
+    text-align: center;
+}
